@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deep Frontier Diving — Maritime Archive & Logbook</title>
+  <!-- Google Fonts: Playfair Display, Special Elite, Courier Prime -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ─── RESET & VINTAGE DESIGN TOKENS ───────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --wood-dark:   #f0ece1; /* Sun-bleached driftwood wood/sand backdrop */
+      --wood-medium: #1f9b85; /* Original brand green for navigation background */
+      --parchment:   #ffffff; /* Clean white log pages */
+      --parchment-dark:#ebdcb9;
+      --ink-dark:    #152822; /* Original deep ink color */
+      --ink-muted:   #4a6860; /* Original muted green/grey text */
+      --brass:       #c5a059;
+      --brass-dark:  #9e7b3b;
+      --crimson:     #1f9b85; /* Use original green as primary accent/stamp color */
+      --teal-accent: #166e5f; /* Original dark green */
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Courier Prime', monospace;
+      background: var(--wood-dark);
+      background-image: 
+        radial-gradient(circle at center, #ffffff 0%, #e8e3d5 100%);
+      color: var(--ink-dark);
+      font-size: 15px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-bottom: 80px;
+    }
+
+    /* Typography overlays */
+    h1, h2, h3, .heading-serif {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      color: var(--ink-dark);
+    }
+
+    .typewriter {
+      font-family: 'Special Elite', cursive;
+    }
+
+    /* ─── NAVIGATION (BRASS LOGBOOK CLIPS) ────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      height: 75px;
+      background: var(--wood-medium);
+      border-bottom: 3px solid var(--brass);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--parchment);
+    }
+
+    .logo-seal {
+      width: 44px;
+      height: 44px;
+      border: 2px solid var(--brass);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo-text span {
+      display: block;
+      font-family: 'Courier Prime', monospace;
+      font-weight: 400;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      color: var(--brass);
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    nav a:not(.nav-cta) {
+      text-decoration: none;
+      color: var(--parchment);
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav a:hover:not(.nav-cta) {
+      color: var(--brass);
+    }
+
+    .nav-cta {
+      text-decoration: none;
+      font-family: 'Special Elite', cursive;
+      background: var(--teal-accent);
+      color: var(--parchment);
+      padding: 10px 20px;
+      font-size: 0.8rem;
+      border-radius: 2px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      transition: all 0.2s;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-cta:hover {
+      background: var(--wood-medium);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+    }
+
+    /* ─── DESK BOARD WRAPPER ────────────────────────────── */
+    .desk-board {
+      max-width: 1200px;
+      margin: 110px auto 0;
+      padding: 0 20px;
+    }
+
+    /* ─── PARCHMENT PAPER SHEETS ──────────────────────────── */
+    .paper-sheet {
+      background: var(--parchment);
+      border-radius: 4px;
+      padding: 60px 50px;
+      margin-bottom: 60px;
+      box-shadow: 
+        0 1px 3px rgba(0,0,0,0.2), 
+        0 10px 30px rgba(0,0,0,0.25),
+        inset 0 0 40px rgba(42, 31, 27, 0.05);
+      border: 1px solid var(--parchment-dark);
+      position: relative;
+    }
+
+    /* Brass Rivet / Pin Graphic */
+    .brass-tack {
+      width: 14px;
+      height: 14px;
+      background: radial-gradient(circle at 4px 4px, #ffe699, #b58d3d 70%, #73531b 100%);
+      border-radius: 50%;
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+      z-index: 5;
+    }
+
+    .tack-l { left: 40px; transform: none; }
+    .tack-r { right: 40px; left: auto; transform: none; }
+
+    /* ─── POLAROID IMAGES ────────────────────────────────── */
+    .polaroid {
+      background: #fbfbf9;
+      padding: 16px 16px 40px 16px;
+      border: 1px solid #e3dec3;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      display: inline-block;
+      position: relative;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .polaroid img {
+      width: 100%;
+      height: auto;
+      filter: sepia(10%) contrast(95%) brightness(98%);
+      display: block;
+    }
+
+    .polaroid-caption {
+      font-family: 'Special Elite', cursive;
+      font-size: 0.8rem;
+      text-align: center;
+      margin-top: 16px;
+      color: var(--ink-muted);
+    }
+
+    .p-tilt-l { transform: rotate(-2.5deg); }
+    .p-tilt-r { transform: rotate(3deg); }
+
+    .polaroid:hover {
+      transform: rotate(0deg) scale(1.04);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.45);
+      z-index: 10;
+    }
+
+    /* ─── HERO ─────────────────────────────────────────────── */
+    #hero {
+      padding-top: 160px;
+      padding-bottom: 80px;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-logbook {
+      padding: 50px 40px;
+      border-left: 2px solid var(--crimson);
+    }
+
+    .hero-tag {
+      font-family: 'Special Elite', cursive;
+      color: var(--crimson);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: var(--ink-dark);
+    }
+
+    h1 span.alt {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--ink-muted);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .btn-group { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-family: 'Special Elite', cursive;
+      font-size: 0.85rem;
+      padding: 14px 28px;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--teal-accent);
+      color: var(--parchment);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .btn-primary:hover {
+      background: var(--wood-medium);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      border: 1px solid var(--ink-muted);
+      color: var(--ink-dark);
+      background: transparent;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--crimson);
+      color: var(--crimson);
+      transform: translateY(-1px);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px dashed var(--ink-muted);
+    }
+
+    .stat-num {
+      font-family: 'Special Elite', cursive;
+      font-size: 1.8rem;
+      color: var(--crimson);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      margin-top: 6px;
+      text-transform: uppercase;
+    }
+
+    /* ─── SECTIONS ─────────────────────────────────────────── */
+    .section-label {
+      font-family: 'Special Elite', cursive;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    h2 strong {
+      font-weight: 700;
+      color: var(--teal-accent);
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+
+    /* ─── ABOUT ────────────────────────────────────────────── */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-logbook {
+      padding-right: 20px;
+    }
+
+    .about-polaroid-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .about-values {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .value-item {
+      border: 1px solid var(--parchment-dark);
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.3);
+      position: relative;
+    }
+
+    .value-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+      color: var(--teal-accent);
+    }
+
+    .value-desc {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── SERVICES ─────────────────────────────────────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .service-card {
+      background: var(--parchment);
+      border: 1px solid var(--parchment-dark);
+      padding: 40px 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      position: relative;
+    }
+
+    .service-num {
+      font-family: 'Special Elite', cursive;
+      font-size: 0.8rem;
+      color: var(--crimson);
+      border-bottom: 1px solid var(--parchment-dark);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .service-title {
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+    }
+
+    .service-desc {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .service-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .service-list li {
+      font-size: 0.82rem;
+      color: var(--ink-dark);
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .service-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--crimson);
+    }
+
+    /* ─── DESTINATIONS ─────────────────────────────────────── */
+    .dest-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+    }
+
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .dest-card {
+      background: var(--parchment);
+      border: 1px solid var(--parchment-dark);
+      padding: 30px 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      position: relative;
+    }
+
+    .dest-flag {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+    }
+
+    .dest-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .dest-highlight {
+      font-family: 'Special Elite', cursive;
+      font-size: 0.75rem;
+      color: var(--teal-accent);
+      margin-bottom: 12px;
+    }
+
+    .dest-desc {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── EXPEDITIONS ──────────────────────────────────────── */
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .exp-item {
+      border: 1px solid var(--parchment-dark);
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .exp-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .exp-title {
+      font-size: 1.15rem;
+    }
+
+    .exp-tag {
+      font-family: 'Special Elite', cursive;
+      font-size: 0.72rem;
+      color: var(--crimson);
+      border: 1px dashed var(--crimson);
+      padding: 2px 8px;
+    }
+
+    .exp-desc {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── CONTACT ──────────────────────────────────────────── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 60px;
+      margin-top: 40px;
+      align-items: start;
+    }
+
+    .contact-info { display: flex; flex-direction: column; gap: 28px; }
+
+    .contact-item {
+      border-left: 2px solid var(--brass);
+      padding-left: 20px;
+    }
+
+    .contact-item-label {
+      font-family: 'Special Elite', cursive;
+      font-size: 0.75rem;
+      color: var(--crimson);
+      margin-bottom: 4px;
+    }
+
+    .contact-item-value {
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .contact-item-value a {
+      color: var(--ink-dark);
+      text-decoration: none;
+    }
+
+    .contact-item-value a:hover {
+      text-decoration: underline;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      border: 1px solid var(--parchment-dark);
+      padding: 40px 30px;
+      background: rgba(255, 255, 255, 0.35);
+      position: relative;
+    }
+
+    .form-seal {
+      font-family: 'Special Elite', cursive;
+      font-size: 0.8rem;
+      color: var(--crimson);
+      border-bottom: 1px solid var(--parchment-dark);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--parchment-dark);
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--ink-dark);
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      outline: none;
+      border-radius: 0;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--teal-accent);
+      background: #fff;
+    }
+
+    textarea { resize: vertical; min-height: 120px; }
+
+    input::placeholder, textarea::placeholder { color: var(--ink-muted); opacity: 0.6; }
+
+    /* ─── FOOTER ───────────────────────────────────────────── */
+    footer {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--ink-dark);
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .footer-brand span {
+      display: block;
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      margin-top: 4px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--wood-medium); }
+
+    .footer-copy {
+      font-family: 'Special Elite', cursive;
+      font-size: 0.72rem;
+      color: var(--crimson);
+    }
+
+    /* ─── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .hero-layout,
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .about-polaroid-stack {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid,
+      .exp-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      .services-grid { grid-template-columns: 1fr; }
+
+      .dest-grid { grid-template-columns: repeat(2, 1fr); }
+
+      nav ul { display: none; }
+    }
+
+    @media (max-width: 540px) {
+      .dest-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 2.1rem; }
+      .btn-group { flex-direction: column; }
+      .btn { text-align: center; }
+      footer { flex-direction: column; text-align: center; gap: 20px; }
+      .footer-links { justify-content: center; }
+      .paper-sheet { padding: 40px 24px; }
+      nav { top: 0; }
+      .theme-banner { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+
+
+<!-- ─── NAVIGATION ───────────────────────────────────────── -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <div class="logo-seal">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.5">
+        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        <path d="M2 12h20"/>
+      </svg>
+    </div>
+    <div class="nav-logo-text">
+      Deep Frontier
+      <span>Diving Co.</span>
+    </div>
+  </a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#destinations">Destinations</a></li>
+    <li><a href="#expeditions">Expeditions</a></li>
+    <li><a href="#contact" class="nav-cta">Send Dispatch</a></li>
+  </ul>
+</nav>
+
+<div class="desk-board">
+
+  <!-- ─── HERO ─────────────────────────────────────────────── -->
+  <section id="hero" class="paper-sheet">
+    <div class="brass-tack tack-l"></div>
+    <div class="brass-tack tack-r"></div>
+    
+    <div class="hero-layout">
+      <div class="hero-logbook">
+        <div class="hero-tag">FIELD ENTRY: AFRICAN FRONTIER</div>
+        <h1>Extending the <span class="alt">limit.</span><br>Into the deep.</h1>
+        <p class="hero-sub">
+          Deep Frontier Diving provides technical training, specialised dive trips and full expedition support
+          across Africa's most extraordinary underwater environments — from uncharted wrecks and pristine caves to deep reefs and abandoned mines.
+        </p>
+        <div class="btn-group">
+          <a href="#destinations" class="btn btn-primary">Examine Destinations</a>
+          <a href="#expeditions" class="btn btn-ghost">Logistics Support</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-num">12+</div>
+            <div class="stat-label">Sovereign Territories</div>
+          </div>
+          <div>
+            <div class="stat-num">110m+</div>
+            <div class="stat-label">Max Recorded Depth</div>
+          </div>
+          <div>
+            <div class="stat-num">IANTD/XR</div>
+            <div class="stat-label">Certified Log</div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center;">
+        <div class="polaroid p-tilt-r" style="max-width: 380px;">
+          <img src="images/pexels-seyiram-3522700.jpg" alt="Local wood fishing vessel on coastal African beach" />
+          <div class="polaroid-caption">Expedition Base, Lamu Coast</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ────────────────────────────────────────────── -->
+  <section id="about" class="paper-sheet">
+    <div class="brass-tack tack-l"></div>
+    <div class="brass-tack tack-r"></div>
+    
+    <div class="section-label">Logbook Entry // Origin</div>
+    <h2>Built by divers,<br><strong>for the frontier.</strong></h2>
+    
+    <div class="about-layout">
+      <div class="about-logbook">
+        <p class="lead">
+          Deep Frontier Diving was founded by a team of technical divers with extensive
+          experience across African waters. Our focus is on delivering safe,
+          meticulously planned dive operations — whether a guided technical trip or
+          full logistical support for a large-scale expedition.
+        </p>
+        <p class="lead" style="margin-top:16px;">
+          We operate with rebreathers, trimix, heliox, and advanced stage diving
+          configurations. Every operation is planned, documented, and executed with
+          professional rigour.
+        </p>
+        
+        <div class="about-values">
+          <div class="value-item">
+            <h4 class="value-title">Safety Protocol</h4>
+            <p class="value-desc">Thorough dive planning, proper preparation, and contingency protocols on every operation.</p>
+          </div>
+          <div class="value-item">
+            <h4 class="value-title">Local Intelligence</h4>
+            <p class="value-desc">Deep relationships with local operators, port authorities, and communities across Africa.</p>
+          </div>
+          <div class="value-item">
+            <h4 class="value-title">Technical Capability</h4>
+            <p class="value-desc">CCR, OC, trimix, sidemount — we configure for the objective, not the other way around.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-polaroid-stack">
+        <div class="polaroid p-tilt-l" style="max-width: 320px;">
+          <img src="images/cheikh-tidiane-ndiaye-4mnvbz1_i38-unsplash.jpg" alt="Painted wooden fishing boat" />
+          <div class="polaroid-caption">Coastal Scout Boat - Senegal</div>
+        </div>
+        <div class="polaroid p-tilt-r" style="max-width: 320px;">
+          <img src="images/neom-Oj8w6hWC0dU-unsplash.jpg" alt="Diver with sea turtle" />
+          <div class="polaroid-caption">Reef Survey, Indian Ocean</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ─────────────────────────────────────────── -->
+  <section id="services" class="paper-sheet">
+    <div class="brass-tack tack-l"></div>
+    <div class="brass-tack tack-r"></div>
+    
+    <div class="section-label">Field Protocols</div>
+    <h2>Precision-planned.<br><strong>Fully supported.</strong></h2>
+    
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-num">REGISTRY ITEM 01</span>
+        <h3 class="service-title">Technical Training</h3>
+        <p class="service-desc">
+          SSI XR and IANTD certified courses delivered in concise format with immediate real world application.
+          Rigorous theory, real technical conditions. Both done properly.
+        </p>
+        <ul class="service-list">
+          <li>Foundational Training</li>
+          <li>Decompression Theory</li>
+          <li>Extended Range Trimix training</li>
+          <li>Wreck &amp; cave specialities</li>
+        </ul>
+      </div>
+      
+      <div class="service-card">
+        <span class="service-num">REGISTRY ITEM 02</span>
+        <h3 class="service-title">Individual Dive Trips</h3>
+        <p class="service-desc">
+          Small-group guided dives for qualified technical divers. Making the most remote locations accessible.
+          All logistics handled — travel, gas fills, accommodation.
+        </p>
+        <ul class="service-list">
+          <li>Deep wall and reef dives</li>
+          <li>Technical Wreck penetration</li>
+          <li>Cavern &amp; cave exploration</li>
+          <li>Trimix and CCR support</li>
+        </ul>
+      </div>
+      
+      <div class="service-card">
+        <span class="service-num">REGISTRY ITEM 03</span>
+        <h3 class="service-title">Expedition Support</h3>
+        <p class="service-desc">
+          Full operational backbone for scientific, media, or private expeditions.
+          From permit acquisition to surface support vessels and decompression stations.
+        </p>
+        <ul class="service-list">
+          <li>Permitting &amp; logistics coordination</li>
+          <li>Surface support &amp; chase vessels</li>
+          <li>Medic &amp; oxygen first aid cover</li>
+          <li>Gas blending &amp; fill station setup</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DESTINATIONS ─────────────────────────────────────── -->
+  <section id="destinations" class="paper-sheet">
+    <div class="brass-tack tack-l"></div>
+    <div class="brass-tack tack-r"></div>
+    
+    <div class="dest-intro">
+      <div>
+        <div class="section-label">Surveyed Frontiers</div>
+        <h2>Africa's defining<br><strong>dive frontiers.</strong></h2>
+      </div>
+      <p class="lead" style="max-width: 400px;">
+        Every destination is selected for its technical diving merit —
+        depth, visibility, structure, and the challenge it presents.
+      </p>
+    </div>
+    
+    <div class="dest-grid">
+      <div class="dest-card">
+        <div class="dest-flag">🇲🇿</div>
+        <h3 class="dest-name">Mozambique</h3>
+        <div class="dest-highlight">Quirimbas Archipelago</div>
+        <p class="dest-desc">Pristine oceanic walls, deep pinnacles, and Raggie sharks along structures that drop beyond 80m.</p>
+      </div>
+      
+      <div class="dest-card">
+        <div class="dest-flag">🇿🇦</div>
+        <h3 class="dest-name">South Africa</h3>
+        <div class="dest-highlight">Aliwal Shoal · Sodwana Bay</div>
+        <p class="dest-desc">World-class wreck diving, Tiger shark dives, and the Cathedral — a complex technical cave system.</p>
+      </div>
+      
+      <div class="dest-card">
+        <div class="dest-flag">🇿🇼</div>
+        <h3 class="dest-name">Zimbabwe</h3>
+        <div class="dest-highlight">Chinhoyi Caves</div>
+        <p class="dest-desc">Vertical limestone shafts, deep cave passages, and unsurveyed leads in some of Africa's least-dived karst.</p>
+      </div>
+      
+      <div class="dest-card">
+        <div class="dest-flag">🇷🇼</div>
+        <h3 class="dest-name">Rwanda / DRC</h3>
+        <div class="dest-highlight">Lake Kivu</div>
+        <p class="dest-desc">High-altitude freshwater diving in a volcanically active rift lake with exceptional visibility.</p>
+      </div>
+      
+      <div class="dest-card">
+        <div class="dest-flag">🇳🇦</div>
+        <h3 class="dest-name">Namibia</h3>
+        <div class="dest-highlight">Dragon's Breath · Aigamas</div>
+        <p class="dest-desc">Cathedral-scale sinkholes, abseil-access underground lakes, and unsurveyed passages dropping past 140m.</p>
+      </div>
+      
+      <div class="dest-card">
+        <div class="dest-flag">🇸🇩</div>
+        <h3 class="dest-name">Sudan</h3>
+        <div class="dest-highlight">Conshelf II · Sanganeb</div>
+        <p class="dest-desc">Diving in Cousteau's footsteps — Conshelf II on the reef, deep wartime wrecks, and southern walls dropping below diveable depths.</p>
+      </div>
+      
+      <div class="dest-card">
+        <div class="dest-flag">🇰🇪</div>
+        <h3 class="dest-name">Kenya</h3>
+        <div class="dest-highlight">Lamu · Diani</div>
+        <p class="dest-desc">Historic wrecks, coral-encrusted drop-offs, and warm Indian Ocean water year-round.</p>
+      </div>
+      
+      <div class="dest-card">
+        <div class="dest-flag">🌍</div>
+        <h3 class="dest-name">Custom Routes</h3>
+        <div class="dest-highlight">Build your expedition</div>
+        <p class="dest-desc">We plan custom multi-destination expeditions tailored to your objectives, certification level, and timeline.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EXPEDITIONS ──────────────────────────────────────── -->
+  <section id="expeditions" class="paper-sheet">
+    <div class="brass-tack tack-l"></div>
+    <div class="brass-tack tack-r"></div>
+    
+    <div class="section-label">Operational Record</div>
+    <h2>We make the<br><strong>impossible — logistical.</strong></h2>
+    <p class="lead">
+      Deep Frontier provides the operational infrastructure for scientific,
+      documentary, and record-attempt expeditions in locations where
+      no established dive infrastructure exists.
+    </p>
+    
+    <div class="exp-grid">
+      <div class="exp-item">
+        <div class="exp-title-row">
+          <h3 class="exp-title">Technical training</h3>
+          <span class="exp-tag">TRAINING</span>
+        </div>
+        <p class="exp-desc">Technical diver training built on genuine understanding, not box-ticking. Theory, gas management, equipment setup, and progressive in-water work toward demanding objectives.</p>
+      </div>
+      
+      <div class="exp-item">
+        <div class="exp-title-row">
+          <h3 class="exp-title">Scientific Research</h3>
+          <span class="exp-tag">SCIENCE</span>
+        </div>
+        <p class="exp-desc">We support marine biologists, geologists, and archaeologists with the technical capacity to reach sample sites, wrecks, and geological features beyond recreational depth.</p>
+      </div>
+      
+      <div class="exp-item">
+        <div class="exp-title-row">
+          <h3 class="exp-title">Film &amp; Media</h3>
+          <span class="exp-tag">BROADCAST</span>
+        </div>
+        <p class="exp-desc">Experienced handling of camera systems and rebreather operations for documentary productions. We have coordinated underwater cinematography across multiple African broadcast projects.</p>
+      </div>
+      
+      <div class="exp-item">
+        <div class="exp-title-row">
+          <h3 class="exp-title">Maritime Survey</h3>
+          <span class="exp-tag">ARCHAEOLOGY</span>
+        </div>
+        <p class="exp-desc">Survey methodology, photogrammetry dives, and sample recovery — all conducted within national maritime law and with full permitting documentation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ───────────────────────────────────────────── -->
+  <section id="contact" class="paper-sheet">
+    <div class="brass-tack tack-l"></div>
+    <div class="brass-tack tack-r"></div>
+    
+    <div class="section-label">Communication Channel</div>
+    <h2>Plan your<br><strong>next descent.</strong></h2>
+    
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p class="lead">
+          Whether you're joining a scheduled trip, planning a private group,
+          or requiring expedition support — reach out and we'll respond within 48 hours.
+        </p>
+        
+        <div class="contact-item">
+          <div class="contact-item-label">Registry Telegram Address</div>
+          <div class="contact-item-value"><a href="mailto:ops@deepfrontier.co">ops@deepfrontier.co</a></div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-item-label">Wire Transmissions</div>
+          <div class="contact-item-value">+49 15678 393836</div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-item-label">Nairobi Field Station</div>
+          <div class="contact-item-value">Nairobi, Kenya<br>
+            <span style="font-size:0.82rem; color:var(--ink-muted); font-weight:400;">Coordinating expeditions across the continent</span>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-item-label">Accreditations</div>
+          <div class="contact-item-value" style="font-size:0.85rem; color:var(--ink-muted); font-weight:400;">
+            SSI · IANTD · DAN Registered Support
+          </div>
+        </div>
+      </div>
+      
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <div class="form-seal typewriter">OFFICIAL DISPATCH // LOGISTICS OFFICE</div>
+        <input type="hidden" name="access_key" value="dd6bbbb5-b3b0-42fd-a648-180794dcc04d" />
+        <input type="hidden" name="subject" value="New Enquiry — Deep Frontier (Vintage)" />
+        <input type="hidden" name="redirect" value="false" />
+        <input type="text" name="name" placeholder="Sender's full name" required />
+        <input type="email" name="email" placeholder="Response email address" required />
+        <select name="enquiry_type">
+          <option value="" disabled selected>Nature of inquiry</option>
+          <option>Guided technical trip</option>
+          <option>Expedition support</option>
+          <option>Technical training</option>
+          <option>Custom itinerary</option>
+          <option>General enquiry</option>
+        </select>
+        <textarea name="message" placeholder="Provide details of your objective, certificates, and dates..."></textarea>
+        <button type="submit" class="btn btn-primary" style="border:none;cursor:pointer;text-align:center;">
+          Send Dispatch
+        </button>
+        <p id="form-status" style="display:none; margin-top:12px; font-size:0.9rem;"></p>
+      </form>
+      
+      <script>
+        const form = document.getElementById('contact-form');
+        const status = document.getElementById('form-status');
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const btn = form.querySelector('button[type="submit"]');
+          btn.disabled = true;
+          btn.textContent = 'Sending…';
+          const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: new FormData(form)
+          });
+          const data = await res.json();
+          status.style.display = 'block';
+          if (data.success) {
+            status.style.color = 'var(--teal-accent, #0f4c5c)';
+            status.textContent = 'Dispatch sent successfully. We will reply within 48 hours.';
+            form.reset();
+          } else {
+            status.style.color = 'var(--crimson)';
+            status.textContent = 'Failed to transmit. Please email directly to ops@deepfrontier.co.';
+          }
+          btn.disabled = false;
+          btn.textContent = 'Send Dispatch';
+        });
+      </script>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-brand">
+      Deep Frontier Diving Co.
+      <span>© 2026 — General Log & Archive</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#destinations">Destinations</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="footer-copy">Dive responsibly. Plan conservatively.</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
