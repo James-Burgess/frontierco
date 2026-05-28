@@ -387,6 +387,28 @@
       padding: 24px;
       background: rgba(255, 255, 255, 0.3);
       position: relative;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .value-icon-container {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(31, 155, 133, 0.08);
+      border-radius: 4px;
+      border: 1px solid rgba(31, 155, 133, 0.15);
+      padding: 8px;
+    }
+
+    .value-icon {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .value-title {
@@ -417,6 +439,25 @@
       padding: 40px 30px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.05);
       position: relative;
+    }
+
+    .service-icon-container {
+      margin-bottom: 20px;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(31, 155, 133, 0.08);
+      border-radius: 50%;
+      border: 1px solid rgba(31, 155, 133, 0.15);
+      padding: 10px;
+    }
+
+    .service-icon {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .service-num {
@@ -809,16 +850,31 @@
         
         <div class="about-values">
           <div class="value-item">
-            <h4 class="value-title">Safety Protocol</h4>
-            <p class="value-desc">Thorough dive planning, proper preparation, and contingency protocols on every operation.</p>
+            <div class="value-icon-container">
+              <img src="https://img.icons8.com/ios/96/1f9b85/shield.png" alt="Shield Icon" class="value-icon" />
+            </div>
+            <div>
+              <h4 class="value-title">Safety Protocol</h4>
+              <p class="value-desc">Thorough dive planning, proper preparation, and contingency protocols on every operation.</p>
+            </div>
           </div>
           <div class="value-item">
-            <h4 class="value-title">Local Intelligence</h4>
-            <p class="value-desc">Deep relationships with local operators, port authorities, and communities across Africa.</p>
+            <div class="value-icon-container">
+              <img src="https://img.icons8.com/ios/96/1f9b85/compass.png" alt="Compass Icon" class="value-icon" />
+            </div>
+            <div>
+              <h4 class="value-title">Local Intelligence</h4>
+              <p class="value-desc">Deep relationships with local operators, port authorities, and communities across Africa.</p>
+            </div>
           </div>
           <div class="value-item">
-            <h4 class="value-title">Technical Capability</h4>
-            <p class="value-desc">CCR, OC, trimix, sidemount — we configure for the objective, not the other way around.</p>
+            <div class="value-icon-container">
+              <img src="https://img.icons8.com/ios/96/1f9b85/scuba-tank.png" alt="Scuba Tank Icon" class="value-icon" />
+            </div>
+            <div>
+              <h4 class="value-title">Technical Capability</h4>
+              <p class="value-desc">CCR, OC, trimix, sidemount — we configure for the objective, not the other way around.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -846,6 +902,9 @@
     
     <div class="services-grid">
       <div class="service-card">
+        <div class="service-icon-container">
+          <img src="https://img.icons8.com/ios/96/1f9b85/certificate.png" alt="Training Icon" class="service-icon" />
+        </div>
         <span class="service-num">REGISTRY ITEM 01</span>
         <h3 class="service-title">Technical Training</h3>
         <p class="service-desc">
@@ -861,6 +920,9 @@
       </div>
       
       <div class="service-card">
+        <div class="service-icon-container">
+          <img src="https://img.icons8.com/ios/96/1f9b85/scuba-diving.png" alt="Diving Icon" class="service-icon" />
+        </div>
         <span class="service-num">REGISTRY ITEM 02</span>
         <h3 class="service-title">Individual Dive Trips</h3>
         <p class="service-desc">
@@ -876,6 +938,9 @@
       </div>
       
       <div class="service-card">
+        <div class="service-icon-container">
+          <img src="https://img.icons8.com/ios/96/1f9b85/lifebuoy.png" alt="Lifebuoy Icon" class="service-icon" />
+        </div>
         <span class="service-num">REGISTRY ITEM 03</span>
         <h3 class="service-title">Expedition Support</h3>
         <p class="service-desc">
