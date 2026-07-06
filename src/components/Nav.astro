@@ -1,0 +1,74 @@
+---
+export interface Props {
+  activePage?: 'training' | 'destinations' | 'expeditions' | 'blog' | 'privacy';
+}
+
+const { activePage } = Astro.props;
+
+interface Link {
+  href: string;
+  label: string;
+  page?: Props['activePage'];
+  isCta?: boolean;
+}
+
+const links: Link[] = [
+  { href: '/#about', label: 'About' },
+  { href: '/training/', label: 'Training', page: 'training' },
+  { href: '/#destinations', label: 'Destinations', page: 'destinations' },
+  { href: '/expeditions/', label: 'Expeditions', page: 'expeditions' },
+  { href: '/blog/', label: 'Blog', page: 'blog' },
+  { href: '/#contact', label: 'Contact', isCta: true },
+];
+---
+
+<nav class="nav" transition:animate="slide">
+  <a href="/" class="nav__logo">
+    <img class="nav__mark" src="/img/logo.png" alt="Deep Frontier" width="50" height="30" />
+    <div class="nav__text">
+      Deep Frontier
+      <span>Diving Company</span>
+    </div>
+  </a>
+  <button class="nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <line x1="3" y1="12" x2="21" y2="12" />
+      <line x1="3" y1="18" x2="21" y2="18" />
+    </svg>
+  </button>
+  <ul class="nav__list" id="nav-menu">
+    {
+      links.map((link) => {
+        const isDestinations = link.label === 'Destinations' && (activePage === 'destinations' || activePage === 'kenya');
+        const isActive = link.page !== undefined && activePage !== undefined && (activePage === link.page || isDestinations);
+        return (
+          <li>
+            <a
+              href={link.href}
+              class:list={['nav__link', link.isCta && 'nav__cta', isActive && 'nav__link--active']}
+            >
+              {link.label}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>
+
+<script>
+  // Delegated so it keeps working after ClientRouter swaps the nav.
+  document.addEventListener('click', (e) => {
+    const nav = document.querySelector('.nav');
+    if (!nav) return;
+    const toggle = nav.querySelector('.nav__toggle');
+    if (!toggle) return;
+    const target = e.target as Element;
+    const open = target.closest('.nav__toggle')
+      ? !nav.classList.contains('nav--open')
+      : false;
+    nav.classList.toggle('nav--open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+</script>

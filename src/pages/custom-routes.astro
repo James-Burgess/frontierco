@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Custom Routes — Deep Frontier Diving"
+  description="Bespoke multi-destination technical diving expeditions, designed around your objective, certification level and timeline — planned and fully supported by Deep Frontier."
+  pageCss="/css/custom-routes.css"
+>
+  <Nav activePage="destinations" />
+
+  <header class="dest-hero" style="background-image: linear-gradient(180deg, rgba(21,40,34,0.2) 0%, rgba(21,40,34,0.4) 45%, rgba(21,40,34,0.88) 100%), url('https://images.unsplash.com/photo-1518877593221-1f28583780b4?w=1600&h=1000&fit=crop&q=80');">
+    <div class="dest-hero__inner">
+      <div class="dest-hero__breadcrumb"><a href="/#destinations">Destinations</a> &nbsp;/&nbsp; <span>Custom Routes</span></div>
+      <div class="dest-hero__coords">MULTI · Anywhere we operate</div>
+      <h1 class="dest-hero__title">Build your<br><strong>expedition.</strong></h1>
+      <p class="dest-hero__desc">One objective, any combination of destinations. Tell us what you want to dive and we'll design the route, handle every logistic, and put the right team in the water.</p>
+    </div>
+  </header>
+
+  <section id="how" class="section routes__steps">
+    <div class="section__label">How it works</div>
+    <h2 class="section__title">From objective<br><strong>to open water.</strong></h2>
+    <div class="routes__step-grid">
+      <div class="routes__step">
+        <div class="routes__step-num">01</div>
+        <h3 class="routes__step-title">Define the objective</h3>
+        <p class="routes__step-desc">A target depth, a specific wreck or cave, a species, a film or research goal — or simply a region you've always wanted to dive.</p>
+      </div>
+      <div class="routes__step">
+        <div class="routes__step-num">02</div>
+        <h3 class="routes__step-title">We design the route</h3>
+        <p class="routes__step-desc">We scope destinations, seasons, permits, gas logistics and vessels, and map a realistic itinerary around your certification and time.</p>
+      </div>
+      <div class="routes__step">
+        <div class="routes__step-num">03</div>
+        <h3 class="routes__step-title">We handle everything</h3>
+        <p class="routes__step-desc">Travel, accommodation, fills, boats, support crew and safety cover — the whole operational backbone, arranged end to end.</p>
+      </div>
+      <div class="routes__step">
+        <div class="routes__step-num">04</div>
+        <h3 class="routes__step-title">You dive</h3>
+        <p class="routes__step-desc">Guided or fully supported, to your level and your objective — with the same planning rigour we apply to every operation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tailor" class="section routes__tailor">
+    <div class="section__label">Tailored to you</div>
+    <h2 class="section__title">Every variable,<br><strong>built around you.</strong></h2>
+    <div class="routes__tailor-grid">
+      <div class="routes__tailor-card"><h3 class="routes__tailor-card-title">Your objective</h3><p class="routes__tailor-card-desc">Recreational reef trip, deep wreck project, cave exploration, media or scientific work — the goal sets the plan.</p></div>
+      <div class="routes__tailor-card"><h3 class="routes__tailor-card-title">Certification level</h3><p class="routes__tailor-card-desc">From newly qualified to full trimix and CCR. We build within your training, or fold instruction into the trip.</p></div>
+      <div class="routes__tailor-card"><h3 class="routes__tailor-card-title">Timeline &amp; pace</h3><p class="routes__tailor-card-desc">A long weekend or a multi-week expedition; relaxed diving or a hard push toward a single ambitious dive.</p></div>
+      <div class="routes__tailor-card"><h3 class="routes__tailor-card-title">Destinations</h3><p class="routes__tailor-card-desc">One region or several stitched together — reefs, wrecks, caves, mines and rift lakes across the continent.</p></div>
+      <div class="routes__tailor-card"><h3 class="routes__tailor-card-title">Support &amp; safety</h3><p class="routes__tailor-card-desc">Guides, surface support, chase vessels, medic and oxygen cover — scaled to the risk and remoteness of the dive.</p></div>
+      <div class="routes__tailor-card"><h3 class="routes__tailor-card-title">Gas &amp; configuration</h3><p class="routes__tailor-card-desc">Air, nitrox, trimix and heliox; open circuit, sidemount or CCR — blended and configured for the objective.</p></div>
+    </div>
+  </section>
+
+  <section id="overland" class="section routes__overland">
+    <div class="routes__overland-grid">
+      <div>
+        <div class="section__label">Above the surface</div>
+        <h2 class="section__title">Dive it, then<br><strong>drive it.</strong></h2>
+        <p class="routes__overland-lead">Some of the best routes cross terrain worth taking slowly. We can build the whole expedition as an <strong>overland journey</strong> — self-driven or fully guided 4×4 — linking dive regions by road rather than by airport, with game parks, Rift Valley escarpments, crater lakes and quiet coast in between the water.</p>
+      </div>
+      <div class="routes__overland-points">
+        <div class="routes__ol-point">
+          <h4 class="routes__ol-point-title">Coast to crater lakes</h4>
+          <p class="routes__ol-point-desc">Drive inland from the Indian Ocean reefs to freshwater sites like Lake Chala on Kilimanjaro's flank — warm salt water and cold altitude freshwater in a single trip.</p>
+        </div>
+        <div class="routes__ol-point">
+          <h4 class="routes__ol-point-title">Dive &amp; safari</h4>
+          <p class="routes__ol-point-desc">Break the driving with Tsavo, Amboseli or the Rift Valley lakes — big-game country sits right on the roads between the dive regions.</p>
+        </div>
+        <div class="routes__ol-point">
+          <h4 class="routes__ol-point-title">Reach the remote</h4>
+          <p class="routes__ol-point-desc">A 4×4 opens up water that fly-in trips can't — unsurveyed lakes, quiet stretches of coast, and border crossings run on our own schedule.</p>
+        </div>
+        <div class="routes__ol-point">
+          <h4 class="routes__ol-point-title">Vehicles &amp; support</h4>
+          <p class="routes__ol-point-desc">Equipped 4×4s, rooftop tents or lodges, compressor and fill support on the move, and a driver-guide who knows the roads and the paperwork.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="routes" class="section routes__examples">
+    <div class="section__label">For inspiration</div>
+    <h2 class="section__title">A few routes<br><strong>we've built.</strong></h2>
+    <p class="lead">Starting points, not a menu — every route is drawn from scratch around your objective. Mix, extend or throw them out entirely.</p>
+    <div class="routes__example-grid">
+      <div class="routes__example-card">
+        <div class="routes__example-img" style="background-image: url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=700&h=420&fit=crop&q=80');">
+          <div class="routes__example-tag">SDN · Red Sea</div>
+        </div>
+        <div class="routes__example-body">
+          <h3>In Cousteau's Wake</h3>
+          <p>Sudan's Conshelf II on the reef, deep wartime wrecks and the southern walls — diving in the footsteps of the pioneers.</p>
+        </div>
+      </div>
+      <div class="routes__example-card">
+        <div class="routes__example-img" style="background-image: url('https://images.unsplash.com/photo-1552083375-1447ce886485?w=700&h=420&fit=crop&q=80');">
+          <div class="routes__example-tag">RWA / COD · Rift lakes</div>
+        </div>
+        <div class="routes__example-body">
+          <h3>The Rift Lakes</h3>
+          <p>High-altitude freshwater on Lake Kivu — a volcanically active rift lake with exceptional visibility and almost no traffic.</p>
+        </div>
+      </div>
+      <div class="routes__example-card">
+        <div class="routes__example-img" style="background-image: url('https://images.unsplash.com/photo-1682686581498-5e85c7228119?w=700&h=420&fit=crop&q=80');">
+          <div class="routes__example-tag">KEN + TZA + MOZ · Indian Ocean</div>
+        </div>
+        <div class="routes__example-body">
+          <h3>Reefs &amp; Walls</h3>
+          <p>Warm-water reefs and historic wrecks in Kenya, south through Tanzania's Pemba and Mafia channel walls, then on to Mozambique's oceanic pinnacles and deep drop-offs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="dest-cta">
+    <div class="section__label">Start planning</div>
+    <h2 class="section__title">Tell us your <strong>objective.</strong></h2>
+    <p>Send us the dive you have in mind — depth, target, certification level and rough dates — and we'll come back with a route and a plan.</p>
+    <a href="/#contact" class="btn btn--primary">Plan My Expedition</a>
+  </div>
+
+  <Footer />
+</BaseLayout>

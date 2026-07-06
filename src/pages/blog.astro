@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<script>
+  import '../scripts/blog.ts';
+</script>
+
+<BaseLayout
+  title="Blog — Deep Frontier Diving"
+  description="Writing on technical diving, expedition logistics, and the underwater world from Deep Frontier's operations across Africa and beyond."
+  pageCss="/css/blog.css"
+>
+  <Nav activePage="blog" />
+
+  <div class="blog__header">
+    <div class="section__label">Field notes &amp; dispatches</div>
+    <h1 class="blog__title">From the <strong>deep.</strong></h1>
+    <p class="blog__lead">
+      Writing on technical diving, expedition logistics, and the underwater world —
+      from Deep Frontier's operations across Africa and beyond.
+    </p>
+    <a href="https://medium.com/@deepfrontier" target="_blank" rel="noopener" class="blog__medium-link">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+      </svg>
+      Follow on Medium
+    </a>
+  </div>
+
+  <div id="blog-root" class="blog__root">
+    <div class="blog__state">
+      <div class="blog__spinner"></div>
+      <p>Loading articles…</p>
+    </div>
+  </div>
+
+  <div class="blog__cta">
+    <div class="section__label">Go deeper</div>
+    <h2 class="blog__cta-title">Ready for your<br><strong>next descent?</strong></h2>
+    <p class="blog__cta-text">Join a scheduled trip, build a custom itinerary, or bring us in as expedition support.</p>
+    <a href="/#contact" class="btn btn--primary">Get in Touch</a>
+  </div>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+import logoSrc from '../assets/img/logo-white.png';
+---
+
+<footer class="footer" transition:animate="slide">
+  <div class="footer__top">
+    <div class="footer__brand">
+      <div class="footer__logo"><Image src={logoSrc} alt="Deep Frontier" /></div>
+      <p class="footer__tagline">Going where the <span>map runs out</span> — technical training, guided trips and expedition support across Africa.</p>
+    </div>
+    <div class="footer__col">
+      <h4 class="footer__col-title">Explore</h4>
+      <ul class="footer__col-list">
+        <li><a href="/#about" class="footer__col-link">About</a></li>
+        <li><a href="/training/" class="footer__col-link">Training</a></li>
+        <li><a href="/#destinations" class="footer__col-link">Destinations</a></li>
+        <li><a href="/expeditions/" class="footer__col-link">Expeditions</a></li>
+        <li><a href="/blog/" class="footer__col-link">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4 class="footer__col-title">Contact</h4>
+      <ul class="footer__col-list">
+        <li><a href="mailto:ops@deepfrontier.co" class="footer__col-link">ops@deepfrontier.co</a></li>
+        <li><span class="footer__col-text">+49 15678 393836</span></li>
+        <li><span class="footer__col-text">Nairobi, Kenya</span></li>
+        <li><span class="footer__col-text">SSI · IANTD · DAN affiliated</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="footer__brand-name">Deep Frontier Diving Co.</div>
+    <div class="footer__meta">© 2026 · Dive responsibly. Plan conservatively. · <a href="/privacy/">Privacy</a></div>
+  </div>
+</footer>

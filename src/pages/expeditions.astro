@@ -1,0 +1,111 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Glyph from '../components/Glyph.astro';
+import logoSrc from '../assets/img/logo-white.png';
+---
+
+<BaseLayout
+  title="Expedition Support — Deep Frontier Diving"
+  description="Full operational backbone for scientific, documentary and record-attempt diving expeditions across Africa — permitting, surface support, gas logistics, safety and remote self-sufficiency."
+  pageCss="/css/expeditions.css"
+>
+  <Nav activePage="expeditions" />
+
+  <header class="exp-header">
+    <div class="exp-header__glyph"><Glyph /></div>
+    <div class="exp-header__inner">
+      <div class="section__label">Expedition Support</div>
+      <h1 class="exp-header__title">We make the<br><strong>impossible — logistical.</strong></h1>
+      <p class="lead">
+        Deep Frontier provides the operational backbone for scientific, documentary and record-attempt
+        expeditions in places where no established dive infrastructure exists. You bring the objective —
+        we build everything around it, from the first permit to the last decompression stop.
+      </p>
+      <div class="exp-header__actions">
+        <a href="/#contact" class="btn btn--primary">Discuss a Project</a>
+        <a href="#backbone" class="btn btn--ghost">What we provide</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="capabilities" class="section exp-capabilities">
+    <div class="section__label">What we support</div>
+    <h2 class="section__title">Expeditions with<br><strong>a purpose.</strong></h2>
+    <p class="lead">Whatever the objective, the job is the same: get your team into the water, on task, and back out safely.</p>
+    <div class="exp-cap__grid">
+      <div class="exp-cap__card">
+        <div class="exp-cap__cat">Research</div>
+        <h3 class="exp-cap__card-title">Scientific research</h3>
+        <p class="exp-cap__card-desc">We put marine biologists, geologists and archaeologists on the sites they need — sample collection, survey and monitoring at depths and in environments well beyond recreational reach.</p>
+      </div>
+      <div class="exp-cap__card">
+        <div class="exp-cap__cat">Media</div>
+        <h3 class="exp-cap__card-title">Film &amp; documentation</h3>
+        <p class="exp-cap__card-desc">Camera and lighting support and rebreather operations for documentary and broadcast productions. We have coordinated underwater cinematography across multiple African projects.</p>
+      </div>
+      <div class="exp-cap__card">
+        <div class="exp-cap__cat">Survey</div>
+        <h3 class="exp-cap__card-title">Shipwreck &amp; artefact survey</h3>
+        <p class="exp-cap__card-desc">Survey methodology, photogrammetry dives and sample recovery — all conducted within national maritime law and with full permitting documentation in place.</p>
+      </div>
+      <div class="exp-cap__card">
+        <div class="exp-cap__cat">Exploration</div>
+        <h3 class="exp-cap__card-title">Record &amp; exploration</h3>
+        <p class="exp-cap__card-desc">First-descent and record-attempt support in locations with no dive infrastructure at all — where the entire operation has to be conceived, provisioned and built from nothing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="backbone" class="section exp-backbone">
+    <div class="section__label">The operational backbone</div>
+    <h2 class="section__title">Everything the dive<br><strong>rests on.</strong></h2>
+    <p class="lead">The dive is the visible part. Underneath it sits a whole operation — the logistics, safety and self-sufficiency that let a team work far from any established support.</p>
+    <div class="exp-bb__grid">
+      <div class="exp-bb__item">
+        <div class="exp-bb__num">01</div>
+        <h4 class="exp-bb__item-title">Permitting &amp; logistics</h4>
+        <p class="exp-bb__item-desc">National permits, port clearances, customs and the paperwork that gets a team and its gear to the water legally.</p>
+      </div>
+      <div class="exp-bb__item">
+        <div class="exp-bb__num">02</div>
+        <h4 class="exp-bb__item-title">Surface support &amp; vessels</h4>
+        <p class="exp-bb__item-desc">Chase boats, dive platforms and support craft chartered and crewed for the demands of the site.</p>
+      </div>
+      <div class="exp-bb__item">
+        <div class="exp-bb__num">03</div>
+        <h4 class="exp-bb__item-title">Gas &amp; fill stations</h4>
+        <p class="exp-bb__item-desc">On-site blending of nitrox, trimix and heliox, and portable fill-station setup for remote operations.</p>
+      </div>
+      <div class="exp-bb__item">
+        <div class="exp-bb__num">04</div>
+        <h4 class="exp-bb__item-title">Decompression &amp; safety</h4>
+        <p class="exp-bb__item-desc">In-water decompression stations, oxygen and stage-gas management, and full DAN-affiliated emergency planning.</p>
+      </div>
+      <div class="exp-bb__item">
+        <div class="exp-bb__num">05</div>
+        <h4 class="exp-bb__item-title">Medical &amp; O₂ cover</h4>
+        <p class="exp-bb__item-desc">Medic and oxygen first-aid cover on site, with evacuation routes mapped and rehearsed before the first dive.</p>
+      </div>
+      <div class="exp-bb__item">
+        <div class="exp-bb__num">06</div>
+        <h4 class="exp-bb__item-title">Remote self-sufficiency</h4>
+        <p class="exp-bb__item-desc">Power, compressors, communications and spares — everything needed to run an operation where nothing exists.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="exp-cta">
+    <div class="exp-cta__mark"><Image src={logoSrc} alt="" /></div>
+    <div class="exp-cta__inner">
+      <div class="section__label">Start the conversation</div>
+      <h2 class="section__title">Bring us in<br><strong>on your project.</strong></h2>
+      <p class="exp-cta__text">Tell us the objective, the location and the timeline — scientific, media, survey or a record attempt — and we'll scope the operation and come back with a plan.</p>
+      <a href="/#contact" class="btn btn--primary">Discuss a Project</a>
+    </div>
+  </div>
+
+  <Footer />
+</BaseLayout>

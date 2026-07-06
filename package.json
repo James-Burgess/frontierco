@@ -1,0 +1,25 @@
+{
+  "name": "chris",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/James-Burgess/frontierco.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/James-Burgess/frontierco/issues"
+  },
+  "homepage": "https://github.com/James-Burgess/frontierco#readme",
+  "dependencies": {
+    "astro": "^7.0.6"
+  }
+}

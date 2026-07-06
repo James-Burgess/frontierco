@@ -1,0 +1,362 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Glyph from '../components/Glyph.astro';
+---
+
+<BaseLayout
+  title="Training — Deep Frontier Diving"
+  description="SSI Extended Range technical diving courses with Deep Frontier — from Extended Range Foundations to trimix decompression diving, and the full XR pathway beyond."
+  pageCss="/css/training.css"
+>
+  <Nav activePage="training" />
+
+  <header class="train-header">
+    <div class="train-header__glyph"><Glyph /></div>
+    <div class="train-header__inner">
+      <div class="section__label">SSI Extended Range · Technical Training</div>
+      <h1 class="train-header__title">Trained to go <strong>further.</strong></h1>
+      <p class="lead">
+        We teach the SSI Extended Range pathway the way it should be taught — small groups, real technical
+        conditions, and no skill signed off until it holds up under load. Start with foundations, build toward
+        staged decompression and trimix, and carry on down the pathway as far as you want to take it.
+      </p>
+      <div class="train-header__actions">
+        <a href="#courses" class="btn btn--primary">Our Courses</a>
+        <a href="/#contact" class="btn btn--ghost">Enquire</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="approach" class="section train-approach">
+    <div class="section__label">How we teach</div>
+    <h2 class="section__title">Certification is the<br><strong>by-product, not the goal.</strong></h2>
+    <div class="train-approach__grid">
+      <div class="train-approach__item">
+        <div class="train-approach__num">01</div>
+        <h4 class="train-approach__item-title">Small groups</h4>
+        <p class="train-approach__item-desc">Two to three divers per instructor. Enough water time to actually fix what needs fixing, not a queue waiting for a turn.</p>
+      </div>
+      <div class="train-approach__item">
+        <div class="train-approach__num">02</div>
+        <h4 class="train-approach__item-title">Real conditions</h4>
+        <p class="train-approach__item-desc">We train in the environments you'll dive in — current, depth, and task load — so your skills hold up where it counts.</p>
+      </div>
+      <div class="train-approach__item">
+        <div class="train-approach__num">03</div>
+        <h4 class="train-approach__item-title">Standards that stick</h4>
+        <p class="train-approach__item-desc">No skill is signed off until it's repeatable under stress. We'd rather add a day than certify a diver who isn't ready.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pathway" class="section train-pathway">
+    <div class="section__label">The pathway</div>
+    <h2 class="section__title">One line down,<br><strong>surface to 100 metres.</strong></h2>
+    <p class="lead">
+      SSI Extended Range is a single, continuous open-circuit progression — from your first skills dives to hypoxic
+      trimix at 100 metres. Each course earns the next, and specialty and environment training branches off the same
+      line as you build depth and experience.
+    </p>
+
+    <div class="train-pathway__path">
+      <a class="train-pathway__node" href="#course-foundations">
+        <div class="train-pathway__step">Step 01</div>
+        <div class="train-pathway__name">Extended Range Foundations</div>
+        <div class="train-pathway__depth">No-stop · skills</div>
+      </a>
+      <a class="train-pathway__node" href="#course-nitrox">
+        <div class="train-pathway__step">Step 02</div>
+        <div class="train-pathway__name">Extended Range Nitrox</div>
+        <div class="train-pathway__depth">to 40 m · deco</div>
+      </a>
+      <a class="train-pathway__node" href="#course-extended-range">
+        <div class="train-pathway__step">Step 03</div>
+        <div class="train-pathway__name">Extended Range</div>
+        <div class="train-pathway__depth">to 45 m · trimix</div>
+      </a>
+      <a class="train-pathway__node" href="#course-technical-extended-range">
+        <div class="train-pathway__step">Step 04</div>
+        <div class="train-pathway__name">Technical Extended Range</div>
+        <div class="train-pathway__depth">to 60 m · trimix</div>
+      </a>
+      <a class="train-pathway__node" href="#course-hypoxic-trimix">
+        <div class="train-pathway__step">Step 05</div>
+        <div class="train-pathway__name">Hypoxic Trimix</div>
+        <div class="train-pathway__depth">to 100 m</div>
+      </a>
+    </div>
+
+    <div class="train-pathway__branch">
+      <h3 class="train-pathway__branch-title">Specialties &amp; environments</h3>
+      <span class="train-pathway__branch-label">Alongside the depth ladder</span>
+    </div>
+    <div class="train-pathway__path">
+      <div class="train-pathway__node">
+        <div class="train-pathway__step">Configuration</div>
+        <div class="train-pathway__name">Technical Sidemount</div>
+        <div class="train-pathway__depth">Streamlining · redundancy</div>
+      </div>
+      <div class="train-pathway__node">
+        <div class="train-pathway__step">Overhead</div>
+        <div class="train-pathway__name">Technical Wreck</div>
+        <div class="train-pathway__depth">Penetration</div>
+      </div>
+      <div class="train-pathway__node">
+        <div class="train-pathway__step">Overhead</div>
+        <div class="train-pathway__name">Extended Range Cave</div>
+        <div class="train-pathway__depth">Cavern · cave</div>
+      </div>
+      <div class="train-pathway__node">
+        <div class="train-pathway__step">Self-sufficiency</div>
+        <div class="train-pathway__name">Gas Blending</div>
+        <div class="train-pathway__depth">Nitrox · trimix</div>
+      </div>
+    </div>
+
+    <div class="train-pathway__note">
+      <p>Beyond 60 metres, we strongly recommend diving a <strong>closed-circuit rebreather (CCR)</strong> over open circuit — for the gas efficiency, decompression and safety advantages it brings on deeper, longer dives.</p>
+      <a href="/#contact" class="btn btn--primary">More information</a>
+    </div>
+  </section>
+
+  <section id="basics" class="section train-basics">
+    <div class="section__label">Not just technical</div>
+    <h2 class="section__title">Every level, taught by<br><strong>technical instructors.</strong></h2>
+    <p class="lead">
+      We run the full recreational programme from <strong>Open Water Diver</strong> upward, plus the foundational
+      specialties below — all taught by the same experienced technical instructors who lead our trimix and expedition
+      dives. The trim and discipline you build on day one are the habits that carry all the way to 100 metres.
+    </p>
+    <div class="train-basics__grid">
+      <div class="train-basics__card">
+        <div class="train-basics__cat">Exposure protection</div>
+        <h3 class="train-basics__card-title">Drysuit Diving</h3>
+        <p class="train-basics__card-desc">Warmth and control for cold water and long runtimes — buoyancy, trim and emergency skills in a drysuit.</p>
+      </div>
+      <div class="train-basics__card">
+        <div class="train-basics__cat">Recreational · pre-tech</div>
+        <h3 class="train-basics__card-title">Decompression Diving</h3>
+        <p class="train-basics__card-desc">A recreational course, not technical diving — your first taste of staged decompression, within recreational limits.</p>
+      </div>
+      <div class="train-basics__card">
+        <div class="train-basics__cat">Overhead</div>
+        <h3 class="train-basics__card-title">Advanced Wreck</h3>
+        <p class="train-basics__card-desc">Penetration done properly — guideline and reel work, light and gas management inside wrecks.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="courses" class="section train-courses">
+    <div class="section__label">What we teach</div>
+    <h2 class="section__title">The courses we<br><strong>run in full.</strong></h2>
+
+    <div class="train-course" id="course-foundations">
+      <div class="train-course__aside">
+        <div class="train-course__num">01</div>
+        <div>
+          <div class="train-course__level">Foundation</div>
+          <div class="train-course__depth"><b>Skills</b><span>no-stop</span></div>
+        </div>
+      </div>
+      <div class="train-course__main">
+        <div class="train-course__title">Extended Range Foundations</div>
+        <div class="train-course__sub">The groundwork every technical dive is built on</div>
+        <p class="train-course__desc">
+          Before depth, before decompression, before gas — control. Foundations is a workshop in the fundamentals that
+          separate technical divers from everyone else: precise trim and buoyancy, efficient propulsion, calm valve and
+          gas-sharing drills, and a properly configured twinset or sidemount rig. No decompression, no depth extension —
+          just the discipline that makes everything above it safe.
+        </p>
+        <div class="train-course__cols">
+          <div class="train-course__block">
+            <h4 class="train-course__block-title">You'll master</h4>
+            <ul class="train-course__list">
+              <li>Horizontal trim and fine buoyancy control</li>
+              <li>Frog, back and helicopter propulsion kicks</li>
+              <li>Valve drills, S-drills and gas sharing as a team</li>
+              <li>Backmount twinset or sidemount configuration</li>
+            </ul>
+          </div>
+          <div class="train-course__block">
+            <h4 class="train-course__block-title">Details</h4>
+            <div class="train-course__spec"><span class="train-course__spec-key">Depth</span><span class="train-course__spec-val">Recreational, no-stop</span></div>
+            <div class="train-course__spec"><span class="train-course__spec-key">Gas</span><span class="train-course__spec-val">Air / Nitrox</span></div>
+            <div class="train-course__spec"><span class="train-course__spec-key">Prerequisite</span><span class="train-course__spec-val">~24 logged dives</span></div>
+            <div class="train-course__spec"><span class="train-course__spec-key">Configuration</span><span class="train-course__spec-val">Twinset or sidemount</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="train-course" id="course-nitrox">
+      <div class="train-course__aside">
+        <div class="train-course__num">02</div>
+        <div>
+          <div class="train-course__level">Entry to decompression</div>
+          <div class="train-course__depth"><b>40</b><span>metres</span></div>
+        </div>
+      </div>
+      <div class="train-course__main">
+        <div class="train-course__title">Extended Range Nitrox</div>
+        <div class="train-course__sub">Your first staged decompression certification</div>
+        <p class="train-course__desc">
+          This is where you cross the line into true technical diving — planned, staged decompression. You'll learn to
+          run a dive with a real deco obligation to 40 metres, carrying and switching to nitrox and up to 100% oxygen as
+          decompression gases. Ascent discipline, gas planning, and contingency thinking move from theory to muscle memory.
+        </p>
+        <div class="train-course__cols">
+          <div class="train-course__block">
+            <h4 class="train-course__block-title">You'll master</h4>
+            <ul class="train-course__list">
+              <li>Decompression theory and dive planning</li>
+              <li>Accelerated deco with rich nitrox and pure O₂</li>
+              <li>Stage cylinder handling and gas switches</li>
+              <li>Managed ascents and problem-solving at stops</li>
+            </ul>
+          </div>
+          <div class="train-course__block">
+            <h4 class="train-course__block-title">Details</h4>
+            <div class="train-course__spec"><span class="train-course__spec-key">Depth</span><span class="train-course__spec-val">to 40 m</span></div>
+            <div class="train-course__spec"><span class="train-course__spec-key">Deco</span><span class="train-course__spec-val">Limited, staged</span></div>
+            <div class="train-course__spec"><span class="train-course__spec-key">Gas</span><span class="train-course__spec-val">Nitrox + up to 100% O₂</span></div>
+            <div class="train-course__spec"><span class="train-course__spec-key">Prerequisite</span><span class="train-course__spec-val">XR Foundations</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="train-course" id="course-extended-range">
+      <div class="train-course__aside">
+        <div class="train-course__num">03</div>
+        <div>
+          <div class="train-course__level">Technical trimix</div>
+          <div class="train-course__depth"><b>45</b><span>metres</span></div>
+        </div>
+      </div>
+      <div class="train-course__main">
+        <div class="train-course__title">Extended Range</div>
+        <div class="train-course__sub">Trimix, and the real threshold of technical diving</div>
+        <p class="train-course__desc">
+          At 45 metres, air is no longer an honest gas — narcosis and gas density become the limiting factors. Extended
+          Range introduces helium into the mix so your head stays clear while the workload climbs. You'll plan and execute
+          multi-gas decompression dives with the redundancy, discipline and calm that deeper diving demands.
+        </p>
+        <div class="train-course__cols">
+          <div class="train-course__block">
+            <h4 class="train-course__block-title">You'll master</h4>
+            <ul class="train-course__list">
+              <li>Trimix blending logic and gas planning</li>
+              <li>Managing narcosis and gas density with helium</li>
+              <li>Multi-gas decompression across several cylinders</li>
+              <li>Team protocols and failure management at depth</li>
+            </ul>
+          </div>
+          <div class="train-course__block">
+            <h4 class="train-course__block-title">Details</h4>
+            <div class="train-course__spec"><span class="train-course__spec-key">Depth</span><span class="train-course__spec-val">to 45 m</span></div>
+            <div class="train-course__spec"><span class="train-course__spec-key">Gas</span><span class="train-course__spec-val">Trimix + deco gases</span></div>
+            <div class="train-course__spec"><span class="train-course__spec-key">Deco</span><span class="train-course__spec-val">Multi-gas, staged</span></div>
+            <div class="train-course__spec"><span class="train-course__spec-key">Prerequisite</span><span class="train-course__spec-val">XR Nitrox</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="train-course" id="course-technical-extended-range">
+      <div class="train-course__aside">
+        <div class="train-course__num">04</div>
+        <div>
+          <div class="train-course__level">Normoxic trimix</div>
+          <div class="train-course__depth"><b>60</b><span>metres</span></div>
+        </div>
+      </div>
+      <div class="train-course__main">
+        <div class="train-course__title">Technical Extended Range</div>
+        <div class="train-course__sub">Normoxic trimix and self-sufficient team diving</div>
+        <p class="train-course__desc">
+          The step beyond Extended Range. Bottom mixes get richer in helium and leaner in oxygen, decompression
+          obligations grow, and the team becomes genuinely self-sufficient — each diver carrying and managing their
+          own bailout and stage gas. You'll plan and run longer mixed-gas dives to 60 metres where nothing is
+          improvised and every contingency has an answer worked out on the surface first.
+        </p>
+        <div class="train-course__cols">
+          <div class="train-course__block">
+            <h4 class="train-course__block-title">You'll master</h4>
+            <ul class="train-course__list">
+              <li>Normoxic trimix planning and gas logistics</li>
+              <li>Extended, multi-gas decompression schedules</li>
+              <li>Independent, self-sufficient team protocols</li>
+              <li>Failure management and bailout at depth</li>
+            </ul>
+          </div>
+          <div class="train-course__block">
+            <h4 class="train-course__block-title">Details</h4>
+            <div class="train-course__spec"><span class="train-course__spec-key">Depth</span><span class="train-course__spec-val">to 60 m</span></div>
+            <div class="train-course__spec"><span class="train-course__spec-key">Gas</span><span class="train-course__spec-val">Normoxic trimix + deco gases</span></div>
+            <div class="train-course__spec"><span class="train-course__spec-key">Deco</span><span class="train-course__spec-val">Extended, multi-gas</span></div>
+            <div class="train-course__spec"><span class="train-course__spec-key">Prerequisite</span><span class="train-course__spec-val">Extended Range</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="train-course" id="course-hypoxic-trimix">
+      <div class="train-course__aside">
+        <div class="train-course__num">05</div>
+        <div>
+          <div class="train-course__level">Hypoxic trimix</div>
+          <div class="train-course__depth"><b>100</b><span>metres</span></div>
+        </div>
+      </div>
+      <div class="train-course__main">
+        <div class="train-course__title">Hypoxic Trimix</div>
+        <div class="train-course__sub">The deepest rung of the open-circuit ladder</div>
+        <p class="train-course__desc">
+          The deep end of open-circuit diving. Past 60 metres a breathable bottom mix has too little oxygen to be
+          breathed safely at the surface, so you'll add a travel gas and manage a stack of cylinders through descent,
+          bottom time and a long staged ascent. This is dive planning, gas management and team discipline at their
+          most demanding — hypoxic bottom mixes and multiple decompression gases, all the way to 100 metres.
+        </p>
+        <div class="train-course__cols">
+          <div class="train-course__block">
+            <h4 class="train-course__block-title">You'll master</h4>
+            <ul class="train-course__list">
+              <li>Hypoxic bottom-mix blending and planning</li>
+              <li>Travel-gas and multi-stage cylinder handling</li>
+              <li>Long, staged decompression to the surface</li>
+              <li>Deep team protocols and contingency planning</li>
+            </ul>
+          </div>
+          <div class="train-course__block">
+            <h4 class="train-course__block-title">Details</h4>
+            <div class="train-course__spec"><span class="train-course__spec-key">Depth</span><span class="train-course__spec-val">to 100 m</span></div>
+            <div class="train-course__spec"><span class="train-course__spec-key">Gas</span><span class="train-course__spec-val">Hypoxic trimix + travel &amp; deco</span></div>
+            <div class="train-course__spec"><span class="train-course__spec-key">Deco</span><span class="train-course__spec-val">Extensive, staged</span></div>
+            <div class="train-course__spec"><span class="train-course__spec-key">Prerequisite</span><span class="train-course__spec-val">Technical Extended Range</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section train-pricing">
+    <div class="section__label">Pricing</div>
+    <h2 class="section__title">Simple, honest<br><strong>day rates.</strong></h2>
+    <div class="train-pricing__panel">
+      <div class="train-pricing__figure">
+        <span class="train-pricing__cur">EUR</span>
+        <span class="train-pricing__num">300</span>
+        <span class="train-pricing__per">/ day</span>
+      </div>
+      <div class="train-pricing__body">
+        <p>Every course we run — recreational or technical, Open Water through to trimix — is charged at a flat <strong>EUR 300 per instruction day</strong>, whatever the level.</p>
+        <p class="train-pricing__note">Plus consumables: gas fills, certification and learning materials, and boat, park or permit fees where the dive calls for them.</p>
+        <a href="/#contact" class="btn btn--primary">Enquire About a Course</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

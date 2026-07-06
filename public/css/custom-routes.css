@@ -1,0 +1,186 @@
+/* ============================================================================
+   Custom Routes page
+   ========================================================================== */
+
+/* ─── HERO ─────────────────────────────────────────────── */
+.dest-hero {
+  position: relative;
+  min-height: 76vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 120px clamp(20px, 5vw, 64px) clamp(52px, 6vw, 72px);
+  background:
+    linear-gradient(180deg, rgba(13,24,23,0.3) 0%, rgba(13,24,23,0.5) 45%, rgba(13,24,23,0.94) 100%),
+    var(--ink);
+  background-size: cover;
+  background-position: center;
+}
+
+.dest-hero__inner { position: relative; z-index: 1; max-width: var(--maxw); margin-inline: auto; width: 100%; color: var(--paper); }
+
+.dest-hero__breadcrumb {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+.dest-hero__breadcrumb a { color: var(--muted-ink); text-decoration: none; transition: color .2s ease; }
+.dest-hero__breadcrumb a:hover { color: var(--paper); }
+.dest-hero__breadcrumb span { color: var(--accent-2); }
+
+.dest-hero__coords { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; color: var(--accent-2); margin-bottom: 16px; }
+
+.dest-hero__title {
+  font-family: var(--display);
+  font-size: clamp(2.8rem, 6vw, 4.7rem);
+  font-weight: 350;
+  letter-spacing: -0.022em;
+  line-height: 1.02;
+  margin-bottom: 20px;
+  font-variation-settings: "opsz" 144;
+}
+
+.dest-hero__desc { font-size: 1.1rem; color: var(--muted-ink); max-width: 58ch; line-height: 1.6; font-family: var(--display); font-weight: 350; }
+
+/* ─── STEPS ────────────────────────────────────────────── */
+.routes__steps { background: var(--paper); }
+
+.routes__step-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(24px, 2.5vw, 36px);
+  margin-top: clamp(48px, 5vw, 64px);
+}
+
+.routes__step { position: relative; padding-top: 24px; border-top: 1px solid var(--ink); }
+
+.routes__step-num {
+  font-family: var(--display);
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+
+.routes__step-title { font-family: var(--display); font-size: 1.12rem; font-weight: 500; margin-bottom: 10px; letter-spacing: -0.01em; }
+.routes__step-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+/* ─── TAILOR ───────────────────────────────────────────── */
+.routes__tailor { background: var(--paper-soft); }
+
+.routes__tailor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2vw, 28px);
+  margin-top: clamp(48px, 5vw, 64px);
+}
+
+.routes__tailor-card {
+  border-top: 1px solid var(--ink);
+  padding: 24px 0 0;
+}
+.routes__tailor-card:hover { transform: none; box-shadow: none; }
+
+.routes__tailor-card-title { font-family: var(--display); font-size: 1.15rem; font-weight: 500; margin-bottom: 8px; letter-spacing: -0.01em; }
+.routes__tailor-card-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+/* ─── OVERLAND ─────────────────────────────────────────── */
+.routes__overland { background: var(--paper); }
+
+.routes__overland-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 5vw, 64px); align-items: start; }
+
+.routes__overland-lead { font-size: 1rem; color: var(--muted); line-height: 1.8; margin-top: 4px; }
+.routes__overland-lead strong { color: var(--ink); font-weight: 600; }
+
+.routes__overland-points { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 3vw, 36px) 28px; }
+
+.routes__ol-point { padding-top: 20px; border-top: 1px solid var(--ink); }
+.routes__ol-point-title { font-family: var(--display); font-size: 1.08rem; font-weight: 500; margin-bottom: 8px; letter-spacing: -0.01em; }
+.routes__ol-point-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+/* ─── EXAMPLE ROUTES (dark) ────────────────────────────── */
+.routes__examples { background: var(--ink); color: var(--paper); }
+.routes__examples .section__label { color: var(--accent-2); }
+.routes__examples .section__label::before { background: var(--accent-2); }
+.routes__examples .section__title { color: var(--paper); }
+.routes__examples .lead { color: var(--muted-ink); }
+
+.routes__example-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(18px, 2vw, 24px);
+  margin-top: clamp(48px, 5vw, 64px);
+}
+
+.routes__example-card {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid var(--rule-ink);
+  background: var(--ink-soft);
+  display: flex;
+  flex-direction: column;
+  transition: border-color .25s ease;
+}
+.routes__example-card:hover { border-color: var(--accent-2); transform: none; }
+
+.routes__example-img {
+  height: 190px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--ink);
+  position: relative;
+}
+.routes__example-img::after { content: none; }
+
+.routes__example-tag {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  z-index: 1;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: rgba(13,24,23,0.55);
+  backdrop-filter: blur(4px);
+  padding: 4px 8px;
+  border-radius: var(--r);
+}
+
+.routes__example-body { padding: 24px 22px 28px; }
+
+.routes__example-body h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--paper);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.routes__example-body p { font-size: 0.86rem; color: var(--muted-ink); line-height: 1.65; }
+
+/* ─── CTA ──────────────────────────────────────────────── */
+.dest-cta { padding: clamp(80px, 9vw, 112px) 5vw; background: var(--paper-soft); text-align: center; }
+.dest-cta .section__label { justify-content: center; margin-bottom: 16px; }
+.dest-cta .section__title { margin-bottom: 18px; }
+.dest-cta p { color: var(--muted); max-width: 52ch; margin: 0 auto 34px; font-size: 1rem; line-height: 1.7; }
+
+/* ─── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 900px) {
+  .routes__step-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
+  .routes__tailor-grid { grid-template-columns: 1fr; }
+  .routes__example-grid { grid-template-columns: 1fr; }
+  .routes__overland-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 540px) {
+  .routes__step-grid { grid-template-columns: 1fr; }
+  .routes__overland-points { grid-template-columns: 1fr; gap: 28px; }
+}

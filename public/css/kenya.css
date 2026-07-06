@@ -1,0 +1,185 @@
+/* ============================================================================
+   Kenya destination page
+   ========================================================================== */
+
+/* ─── HERO ─────────────────────────────────────────────── */
+.kenya-hero {
+  position: relative;
+  min-height: 76vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 120px clamp(20px, 5vw, 64px) clamp(52px, 6vw, 72px);
+  background:
+    linear-gradient(180deg, rgba(13,24,23,0.25) 0%, rgba(13,24,23,0.45) 45%, rgba(13,24,23,0.92) 100%),
+    var(--ink);
+  background-size: cover;
+  background-position: center;
+}
+
+.kenya-hero__inner { position: relative; z-index: 1; max-width: var(--maxw); margin-inline: auto; width: 100%; color: var(--paper); }
+
+.kenya-hero__breadcrumb {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+.kenya-hero__breadcrumb a { color: var(--muted-ink); text-decoration: none; transition: color .2s ease; }
+.kenya-hero__breadcrumb a:hover { color: var(--paper); }
+.kenya-hero__breadcrumb span { color: var(--accent-2); }
+
+.kenya-hero__coords {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--accent-2);
+  margin-bottom: 16px;
+}
+
+.kenya-hero__title {
+  font-family: var(--display);
+  font-size: clamp(2.8rem, 6vw, 4.7rem);
+  font-weight: 350;
+  letter-spacing: -0.022em;
+  line-height: 1.02;
+  margin-bottom: 20px;
+  font-variation-settings: "opsz" 144;
+}
+
+.kenya-hero__desc { font-size: 1.1rem; color: var(--muted-ink); max-width: 56ch; line-height: 1.6; font-family: var(--display); font-weight: 350; }
+
+/* ─── OVERVIEW ─────────────────────────────────────────── */
+.kenya-overview { background: var(--paper); }
+.kenya-overview .lead { max-width: 60ch; }
+.kenya-overview .lead + .lead { margin-top: 18px; }
+
+.kenya-overview__grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(40px, 5vw, 64px); align-items: start; }
+
+.kenya-facts { border: 1px solid var(--rule-strong); border-radius: var(--r-lg); overflow: hidden; background: var(--bone); }
+.kenya-facts__head {
+  background: var(--paper-soft);
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.kenya-fact {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 22px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.88rem;
+}
+.kenya-fact:last-child { border-bottom: none; }
+.kenya-fact__key { color: var(--muted); }
+.kenya-fact__val { color: var(--ink); font-weight: 600; text-align: right; }
+
+/* ─── DIVE AREAS ───────────────────────────────────────── */
+.kenya-areas { margin-top: clamp(40px, 4vw, 52px); border-top: 1px solid var(--rule-strong); }
+
+.kenya-area {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: clamp(28px, 4vw, 48px);
+  padding: 32px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.kenya-area__head-title {
+  font-family: var(--display);
+  font-size: 1.22rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.kenya-area__tag {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.kenya-area__desc p { font-size: 0.94rem; color: var(--muted); line-height: 1.78; }
+.kenya-area__desc p strong { color: var(--ink); font-weight: 600; }
+
+.kenya-area__sites { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+
+.kenya-area__site {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  background: var(--paper-soft);
+  border: 1px solid var(--rule);
+  border-radius: var(--r);
+  padding: 5px 11px;
+}
+
+.kenya-area--freshwater .kenya-area__head-title::after {
+  content: 'Freshwater';
+  display: inline-block;
+  margin-left: 8px;
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--paper);
+  background: var(--accent);
+  padding: 3px 7px;
+  border-radius: var(--r);
+  vertical-align: middle;
+}
+
+/* ─── GALLERY STRIP ────────────────────────────────────── */
+.kenya-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.kenya-strip div { height: clamp(220px, 28vw, 300px); background-size: cover; background-position: center; background-color: var(--ink-soft); }
+
+/* ─── CTA (flat, no gradient watermark) ────────────────── */
+.kenya-cta {
+  position: relative;
+  padding: clamp(80px, 9vw, 116px) 5vw;
+  background: var(--ink-soft);
+  text-align: center;
+  border-top: 1px solid var(--rule-ink);
+}
+
+.kenya-cta__mark { display: none; }
+
+.kenya-cta__inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+
+.kenya-cta .section__label { color: var(--accent-2); justify-content: center; }
+.kenya-cta .section__label::before { background: var(--accent-2); }
+.kenya-cta .section__title { color: var(--paper); }
+
+.kenya-cta__text {
+  color: var(--muted-ink);
+  max-width: 52ch;
+  margin: 0 auto 34px;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.kenya-cta .btn--primary { background: var(--accent-2); color: var(--paper); }
+.kenya-cta .btn--primary:hover { background: var(--paper); color: var(--ink); }
+
+/* ─── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 900px) {
+  .kenya-overview__grid { grid-template-columns: 1fr; gap: 40px; }
+  .kenya-area { grid-template-columns: 1fr; gap: 14px; }
+}
+
+@media (max-width: 620px) {
+  .kenya-strip { grid-template-columns: 1fr; }
+}

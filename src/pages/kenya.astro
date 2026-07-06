@@ -1,0 +1,155 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import logoSrc from '../assets/img/logo-white.png';
+---
+
+<BaseLayout
+  title="Kenya — Deep Frontier Diving"
+  description="Diving Kenya with Deep Frontier — Diani's south-coast reefs and drop-offs, the historic wrecks of the Lamu archipelago, and warm Indian Ocean water year-round."
+  pageCss="/css/kenya.css"
+>
+  <Nav activePage="destinations" />
+
+  <header class="kenya-hero" style="background-image: linear-gradient(180deg, rgba(21,40,34,0.15) 0%, rgba(21,40,34,0.35) 45%, rgba(21,40,34,0.85) 100%), url('https://images.unsplash.com/photo-1682686581498-5e85c7228119?w=1600&h=1000&fit=crop&q=80');">
+    <div class="kenya-hero__inner">
+      <div class="kenya-hero__breadcrumb"><a href="/#destinations">Destinations</a> &nbsp;/&nbsp; <span>Kenya</span></div>
+      <div class="kenya-hero__coords">KEN · 2°S · Indian Ocean</div>
+      <h1 class="kenya-hero__title">Kenya's warm<br><strong>Indian Ocean.</strong></h1>
+      <p class="kenya-hero__desc">Our home water. Coral drop-offs off Diani, the historic wrecks of the Lamu archipelago, and diveable, bath-warm sea every month of the year.</p>
+    </div>
+  </header>
+
+  <section id="overview" class="section kenya-overview">
+    <div class="section__label">The place</div>
+    <h2 class="section__title">Home base,<br><strong>and the easiest way in.</strong></h2>
+    <div class="kenya-overview__grid">
+      <div>
+        <p class="lead">
+          Deep Frontier is based in Nairobi, and the Kenyan coast is where most of our divers get their first taste
+          of warm-water technical diving. The Indian Ocean here is diveable all year, the reefs run from gentle
+          recreational shallows to deep offshore drop-offs, and the logistics — flights, fills, boats — are the
+          simplest of anywhere we operate.
+        </p>
+        <p class="lead">
+          The south coast around Diani is the training and day-boat hub: fringing reef, walls and abundant fish life
+          within a short run. North, the Lamu archipelago trades convenience for wildness — remote Swahili coast,
+          old trade-route wrecks, and reefs that see very few divers. In between sit protected marine parks and, in
+          season, whale sharks and mantas moving along the coast.
+        </p>
+      </div>
+      <div class="kenya-facts">
+        <div class="kenya-facts__head">Conditions at a glance</div>
+        <div class="kenya-fact"><span class="kenya-fact__key">Best season</span><span class="kenya-fact__val">Oct – Mar (calm NE monsoon)</span></div>
+        <div class="kenya-fact"><span class="kenya-fact__key">Water temp</span><span class="kenya-fact__val">26 – 29°C</span></div>
+        <div class="kenya-fact"><span class="kenya-fact__key">Visibility</span><span class="kenya-fact__val">10 – 30 m, site dependent</span></div>
+        <div class="kenya-fact"><span class="kenya-fact__key">Typical depths</span><span class="kenya-fact__val">12 – 40 m+</span></div>
+        <div class="kenya-fact"><span class="kenya-fact__key">Suits</span><span class="kenya-fact__val">Recreational to full technical</span></div>
+        <div class="kenya-fact"><span class="kenya-fact__key">Getting there</span><span class="kenya-fact__val">Nairobi → Diani (UKA) / Lamu (LAU)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="highlights" class="section">
+    <div class="section__label">Where you'll dive</div>
+    <h2 class="section__title">The water,<br><strong>region by region.</strong></h2>
+    <p class="lead">The coast runs from the day-boat reefs off Diani to remote wrecks in the far north, with a deep freshwater crater lake inland. Here's what each stretch actually offers.</p>
+
+    <div class="kenya-areas">
+      <div class="kenya-area">
+        <div class="kenya-area__head">
+          <h4 class="kenya-area__head-title">Diani &amp; the south coast</h4>
+          <div class="kenya-area__tag">Reef · wreck · 12–40 m</div>
+        </div>
+        <div class="kenya-area__desc">
+          <p>Our training and day-boat hub. Short runs from the beach reach fringing reef, coral walls and offshore pinnacles, and the coast's best-known wreck — the <strong>MV Funguo</strong>, a fishing vessel scuttled as an artificial reef, sitting upright at around 30 m and now thick with glassfish and soft coral. Further south, the protected reefs of Kisite-Mpunguti hold dolphins, turtles and dense fish life on the shallower profiles.</p>
+          <div class="kenya-area__sites">
+            <span class="kenya-area__site">MV Funguo wreck · ~30 m</span>
+            <span class="kenya-area__site">Galu offshore reefs · 18–25 m</span>
+            <span class="kenya-area__site">Kisite-Mpunguti Marine Park</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="kenya-area">
+        <div class="kenya-area__head">
+          <h4 class="kenya-area__head-title">Mombasa</h4>
+          <div class="kenya-area__tag">Wreck · marine park · to 30 m</div>
+        </div>
+        <div class="kenya-area__desc">
+          <p>The easiest coast to reach and a solid wreck day out. The <strong>MV Dania</strong>, a cargo ship sunk as an artificial reef, sits in around 20–30 m with resident groupers, scorpionfish and honeycomb morays through the holds. The shallower reefs of Mombasa Marine National Park make a relaxed second dive and a good check-out or refresher site.</p>
+          <div class="kenya-area__sites">
+            <span class="kenya-area__site">MV Dania wreck · 20–30 m</span>
+            <span class="kenya-area__site">Mombasa Marine Park reefs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="kenya-area">
+        <div class="kenya-area__head">
+          <h4 class="kenya-area__head-title">Watamu</h4>
+          <div class="kenya-area__tag">Reef · canyons · big animals</div>
+        </div>
+        <div class="kenya-area__desc">
+          <p>One of Kenya's oldest protected reefs — a marine park gazetted in 1968 — and some of the most varied topography on the coast. Coral canyons, overhangs and bommies at <strong>The Canyon</strong>, <strong>Moray Reef</strong> and <strong>Brain Coral</strong>, with the outer sites dropping past 30 m. In season the same waters draw whale sharks and mantas moving down the coast.</p>
+          <div class="kenya-area__sites">
+            <span class="kenya-area__site">The Canyon</span>
+            <span class="kenya-area__site">Moray Reef</span>
+            <span class="kenya-area__site">Brain Coral · Drummers</span>
+            <span class="kenya-area__site">Whale shark season</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="kenya-area">
+        <div class="kenya-area__head">
+          <h4 class="kenya-area__head-title">Lamu archipelago</h4>
+          <div class="kenya-area__tag">Remote · wrecks · exploratory</div>
+        </div>
+        <div class="kenya-area__desc">
+          <p>The far north, and the wildest diving we run. Remote Swahili coast with old trade-route and colonial-era wrecks, untouched offshore reefs around <strong>Manda Toto</strong>, and stretches of water that see almost no other divers. Genuine exploratory potential for those who want to be first down a site rather than following a mooring line.</p>
+          <div class="kenya-area__sites">
+            <span class="kenya-area__site">Manda Toto reefs</span>
+            <span class="kenya-area__site">Historic trade-route wrecks</span>
+            <span class="kenya-area__site">Exploratory offshore</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="kenya-area kenya-area--freshwater">
+        <div class="kenya-area__head">
+          <h4 class="kenya-area__head-title">Lake Chala</h4>
+          <div class="kenya-area__tag">Altitude · crater walls · to 90 m+</div>
+        </div>
+        <div class="kenya-area__desc">
+          <p>Something completely different, inland on the Kenya–Tanzania border below Kilimanjaro. <strong>Chala</strong> is a steep-walled volcanic crater lake — clear, cool freshwater over submerged rock walls that drop beyond 90 m. It's a proper technical and altitude site, a world away from the reefs, and works well as an overland leg between the coast and the mountains.</p>
+          <div class="kenya-area__sites">
+            <span class="kenya-area__site">Crater wall · beyond 90 m</span>
+            <span class="kenya-area__site">Altitude / freshwater</span>
+            <span class="kenya-area__site">Kenya–Tanzania border</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="kenya-strip">
+    <div style="background-image: url('https://images.unsplash.com/photo-1544552866-d3ed42536cfd?w=700&h=520&fit=crop&q=80');"></div>
+    <div style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&h=520&fit=crop&q=80');"></div>
+    <div style="background-image: url('https://images.unsplash.com/photo-1560275619-4662e36fa65c?w=700&h=520&fit=crop&q=80');"></div>
+  </div>
+
+  <div class="kenya-cta">
+    <div class="kenya-cta__mark"><Image src={logoSrc} alt="" /></div>
+    <div class="kenya-cta__inner">
+      <div class="section__label">Dive Kenya</div>
+      <h2 class="section__title">Plan your<br><strong>Kenya trip.</strong></h2>
+      <p class="kenya-cta__text">Tell us your certification level and dates, and whether you're after the south-coast reefs, the Watamu canyons, the Lamu wrecks, the crater lake at Chala — or a mix — and we'll build the trip around it.</p>
+      <a href="/#contact" class="btn btn--primary">Enquire Now</a>
+    </div>
+  </div>
+
+  <Footer />
+</BaseLayout>

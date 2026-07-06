@@ -1,0 +1,68 @@
+/* ============================================================================
+   Coming Soon splash
+   ========================================================================== */
+.coming-soon {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(44,138,110,0.14) 0%, transparent 55%),
+    var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+  text-align: center;
+}
+
+.coming-soon__splash { max-width: 560px; width: 100%; }
+
+.coming-soon__mark { width: min(220px, 58vw); margin: 0 auto 36px; }
+.coming-soon__mark img,
+.coming-soon__mark svg { width: 100%; height: auto; display: block; }
+.coming-soon__mark svg { color: var(--accent-2); }
+
+.coming-soon__wordmark {
+  font-family: var(--logo);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 6vw, 2.9rem);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--paper);
+}
+
+.coming-soon__sub {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 0.66rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  margin-top: 12px;
+}
+
+.coming-soon__rule { width: 44px; height: 1px; background: var(--rule-ink); margin: 32px auto; border: none; }
+
+.coming-soon__text {
+  font-family: var(--display);
+  font-weight: 350;
+  font-size: clamp(1.4rem, 4.5vw, 2.1rem);
+  line-height: 1.25;
+  color: var(--paper);
+  letter-spacing: -0.01em;
+}
+.coming-soon__text strong { font-style: italic; font-weight: 400; color: var(--accent-2); }
+
+.coming-soon__email {
+  display: inline-block;
+  margin-top: 36px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--muted-ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule-ink);
+  padding-bottom: 4px;
+  transition: color .2s ease, border-color .2s ease;
+}
+.coming-soon__email:hover { color: var(--paper); border-color: var(--accent-2); }

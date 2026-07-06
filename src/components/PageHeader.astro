@@ -1,0 +1,59 @@
+---
+import Glyph from './Glyph.astro';
+
+export interface Props {
+  label: string;
+  title: string;
+  lead: string;
+  extraClasses?: string;
+}
+
+const { label, title, lead, extraClasses } = Astro.props;
+---
+
+<header class:list={['page-header', extraClasses]}>
+  <div class="header-glyph"><Glyph /></div>
+  <div class="header-inner">
+    <div class="section__label">{label}</div>
+    <h1 class="header-title" set:html={title} />
+    <p class="lead">{lead}</p>
+    <slot />
+  </div>
+</header>
+
+<style>
+  .page-header {
+    position: relative;
+    overflow: hidden;
+    padding: 150px 5vw 90px;
+    background: linear-gradient(160deg, rgba(31,155,133,0.06) 0%, transparent 55%), var(--white);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .header-glyph {
+    position: absolute;
+    right: -8vw; top: 50%;
+    transform: translateY(-50%);
+    width: min(640px, 70vw);
+    color: var(--green);
+    opacity: 0.05;
+    pointer-events: none;
+  }
+
+  .header-glyph :global(svg) { width: 100%; height: auto; display: block; }
+
+  .header-inner { position: relative; z-index: 1; max-width: 740px; }
+
+  .header-title {
+    font-family: var(--display);
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 300;
+    letter-spacing: -0.015em;
+    line-height: 1.06;
+    margin-bottom: 22px;
+  }
+
+  .header-title :global(strong) { font-weight: 600; color: var(--green); }
+
+  .header-inner :global(.lead) { margin-bottom: 36px; max-width: 620px; }
+</style>
