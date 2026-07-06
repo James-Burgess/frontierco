@@ -1,5 +1,6 @@
 ---
 import Glyph from './Glyph.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
 <footer class="footer" transition:animate="slide">
@@ -25,6 +26,6 @@ import Glyph from './Glyph.astro';
   </div>
   <div class="footer__bottom">
     <div class="footer__brand-name">Deep Frontier Diving Co.</div>
-    <div class="footer__meta">© 2026 · Dive responsibly. Plan conservatively. · <a href="mailto:ops@deepfrontier.co">ops@deepfrontier.co</a> · <a href="/privacy/">Privacy</a></div>
+    <div class="footer__meta">© 2026 · Dive responsibly. Plan conservatively. · <a href="mailto:ops@deepfrontier.co">ops@deepfrontier.co</a> · <a href={`${base}privacy/`}>Privacy</a></div>
   </div>
 </footer>

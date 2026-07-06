@@ -36,7 +36,9 @@ TypeScript in `src/scripts/`, wired into pages via `<script>import '../scripts/x
 
 ## Deploy
 
-`deploy.sh` uploads `dist/` over FTP (uses `lftp`, falls back to `curl`). Requires `FTP_HOST`, `FTP_USER`, `FTP_PASS` env vars (or `--host/--user/--pass` flags); `--remote-dir` defaults to `/`. Pass `--build` to build before uploading.
+GitHub Actions deploys `dist/` to GitHub Pages on every push to `master` (`.github/workflows/deploy.yml`). The site is configured for the default Pages URL at `https://james-burgess.github.io/frontierco/` (`base: '/frontierco'` in `astro.config.mjs`). If a custom domain is added later, remove `base` and update `site`.
+
+`deploy.sh` still exists as a manual FTP fallback (uses `lftp`, falls back to `curl`; requires `FTP_HOST/USER/PASS` env vars, `--build` flag).
 
 ## Other facts
 
@@ -44,3 +46,4 @@ TypeScript in `src/scripts/`, wired into pages via `<script>import '../scripts/x
 - **Images**: two systems coexist — `public/img/*` referenced by raw URL in `style="background-image: url(...)"`, and `src/assets/img/*` imported through `astro:assets` `<Image>` for optimization (used for the logo variants).
 - **Glyph mark**: the cuneiform logo is defined once as `<symbol id="glyph">` in `BaseLayout.astro` and reused via `<use href="#glyph">` in `Glyph.astro`.
 - **Path alias** `@/*` → `src/*` is configured in tsconfig but unused; prefer relative imports to match the codebase.
+- **Base-paths**: because the site serves from `/frontierco/` (default GitHub Pages Project URL), all internal `href`, `src`, and `url()` references use `import.meta.env.BASE_URL` — look for `const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');` in each component. When adding new pages or image references, use `{`${base}`}` in attributes (e.g. `src={`${base}img/photo.jpg`}`) to keep them base-aware.

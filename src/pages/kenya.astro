@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import logoSrc from '../assets/img/logo-white.png';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
 <BaseLayout
@@ -15,7 +16,7 @@ import logoSrc from '../assets/img/logo-white.png';
 
   <header class="kenya-hero" style="background-image: linear-gradient(180deg, rgba(21,40,34,0.15) 0%, rgba(21,40,34,0.35) 45%, rgba(21,40,34,0.85) 100%), url('https://images.unsplash.com/photo-1682686581498-5e85c7228119?w=1600&h=1000&fit=crop&q=80');">
     <div class="kenya-hero__inner">
-      <div class="kenya-hero__breadcrumb"><a href="/#destinations">Destinations</a> &nbsp;/&nbsp; <span>Kenya</span></div>
+      <div class="kenya-hero__breadcrumb"><a href={`${base}#destinations`}>Destinations</a> &nbsp;/&nbsp; <span>Kenya</span></div>
       <div class="kenya-hero__coords">KEN · 2°S · Indian Ocean</div>
       <h1 class="kenya-hero__title">Kenya's warm<br><strong>Indian Ocean.</strong></h1>
       <p class="kenya-hero__desc">Our home water. Coral drop-offs off Diani, the historic wrecks of the Lamu archipelago, and diveable, bath-warm sea every month of the year.</p>
@@ -147,7 +148,7 @@ import logoSrc from '../assets/img/logo-white.png';
       <div class="section__label">Dive Kenya</div>
       <h2 class="section__title">Plan your<br><strong>Kenya trip.</strong></h2>
       <p class="kenya-cta__text">Tell us your certification level and dates, and whether you're after the south-coast reefs, the Watamu canyons, the Lamu wrecks, the crater lake at Chala — or a mix — and we'll build the trip around it.</p>
-      <a href="/#contact" class="btn btn--primary">Enquire Now</a>
+      <a href={`${base}#contact`} class="btn btn--primary">Enquire Now</a>
     </div>
   </div>
 

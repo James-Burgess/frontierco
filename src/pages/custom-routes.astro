@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
 <BaseLayout
@@ -13,7 +14,7 @@ import Footer from '../components/Footer.astro';
 
   <header class="dest-hero" style="background-image: linear-gradient(180deg, rgba(21,40,34,0.2) 0%, rgba(21,40,34,0.4) 45%, rgba(21,40,34,0.88) 100%), url('https://images.unsplash.com/photo-1518877593221-1f28583780b4?w=1600&h=1000&fit=crop&q=80');">
     <div class="dest-hero__inner">
-      <div class="dest-hero__breadcrumb"><a href="/#destinations">Destinations</a> &nbsp;/&nbsp; <span>Custom Routes</span></div>
+      <div class="dest-hero__breadcrumb"><a href={`${base}#destinations`}>Destinations</a> &nbsp;/&nbsp; <span>Custom Routes</span></div>
       <div class="dest-hero__coords">MULTI · Anywhere we operate</div>
       <h1 class="dest-hero__title">Build your<br><strong>expedition.</strong></h1>
       <p class="dest-hero__desc">One objective, any combination of destinations. Tell us what you want to dive and we'll design the route, handle every logistic, and put the right team in the water.</p>
@@ -127,7 +128,7 @@ import Footer from '../components/Footer.astro';
     <div class="section__label">Start planning</div>
     <h2 class="section__title">Tell us your <strong>objective.</strong></h2>
     <p>Send us the dive you have in mind — depth, target, certification level and rough dates — and we'll come back with a route and a plan.</p>
-    <a href="/#contact" class="btn btn--primary">Plan My Expedition</a>
+    <a href={`${base}#contact`} class="btn btn--primary">Plan My Expedition</a>
   </div>
 
   <Footer />

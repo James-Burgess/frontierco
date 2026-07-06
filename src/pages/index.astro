@@ -6,6 +6,7 @@ import Footer from '../components/Footer.astro';
 import Glyph from '../components/Glyph.astro';
 import heroSrc from '../assets/img/hero.png';
 
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const heroBg = await getImage({ src: heroSrc, format: 'webp', width: 1920 });
 const heroBgImage = [
   'linear-gradient(180deg, rgba(13,24,23,0.55) 0%, rgba(13,24,23,0.3) 48%, var(--ink) 97%)',
@@ -35,7 +36,7 @@ const heroBgImage = [
       </p>
       <div class="hero__actions">
         <a href="#destinations" class="btn btn--primary">Explore Destinations</a>
-        <a href="/expeditions/" class="btn btn--ghost">Expedition Support</a>
+        <a href={`${base}expeditions/`} class="btn btn--ghost">Expedition Support</a>
       </div>
     </div>
     <div class="hero__stats">
@@ -59,7 +60,7 @@ const heroBgImage = [
     <h2 class="section__title">Precision-planned.<br><strong>Fully supported.</strong></h2>
     <div class="services__grid">
       <div class="services__card">
-        <div class="services__card-img" style="background-image: url('/img/training.jpg')">
+        <div class="services__card-img" style={`background-image: url('${base}img/training.jpg')`}>
           <div class="services__card-label">01 — Training</div>
         </div>
         <div class="services__card-body">
@@ -75,11 +76,11 @@ const heroBgImage = [
             <li>Extended Range Trimix training</li>
             <li>Wreck &amp; cave specialities</li>
           </ul>
-          <a href="/training/" class="services__card-link">View the SSI XR pathway <span>&rarr;</span></a>
+          <a href={`${base}training/`} class="services__card-link">View the SSI XR pathway <span>&rarr;</span></a>
         </div>
       </div>
       <div class="services__card">
-        <div class="services__card-img" style="background-image: url('/img/trip.jpg')">
+        <div class="services__card-img" style={`background-image: url('${base}img/trip.jpg')`}>
           <div class="services__card-label">02 — Guided Trips</div>
         </div>
         <div class="services__card-body">
@@ -114,7 +115,7 @@ const heroBgImage = [
             <li>Medic &amp; oxygen first aid cover</li>
             <li>Gas blending &amp; fill station setup</li>
           </ul>
-          <a href="/expeditions/" class="services__card-link">Expedition support in full <span>&rarr;</span></a>
+          <a href={`${base}expeditions/`} class="services__card-link">Expedition support in full <span>&rarr;</span></a>
         </div>
       </div>
     </div>
@@ -214,7 +215,7 @@ const heroBgImage = [
         </div>
       </div>
       <div class="destinations__card">
-        <div class="destinations__card-img" style="background-image: url('/img/zim.jpg')">
+        <div class="destinations__card-img" style={`background-image: url('${base}img/zim.jpg')`}>
           <div class="destinations__card-code">ZWE · 17°S</div>
         </div>
         <div class="destinations__card-body">
@@ -244,7 +245,7 @@ const heroBgImage = [
         </div>
       </div>
       <div class="destinations__card">
-        <div class="destinations__card-img" style="background-image: url('/img/sudan.jpg')">
+        <div class="destinations__card-img" style={`background-image: url('${base}img/sudan.jpg')`}>
           <div class="destinations__card-code">SDN · 19°N</div>
         </div>
         <div class="destinations__card-body">
@@ -253,7 +254,7 @@ const heroBgImage = [
           <div class="destinations__card-desc">Diving in Cousteau's footsteps — Conshelf II on the reef, deep wartime wrecks, and southern walls dropping below diveable depths.</div>
         </div>
       </div>
-      <a class="destinations__card" id="dest-kenya" href="/kenya/">
+      <a class="destinations__card" id="dest-kenya" href={`${base}kenya/`}>
         <div class="destinations__card-img" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=360&fit=crop&q=80')">
           <div class="destinations__card-code">KEN · 2°S</div>
         </div>
@@ -264,8 +265,8 @@ const heroBgImage = [
           <span class="destinations__card-more">Explore Kenya <span>&rarr;</span></span>
         </div>
       </a>
-      <a class="destinations__card" id="dest-custom" href="/custom-routes/">
-        <div class="destinations__card-img" style="background-image: url('/img/custom.jpg')">
+      <a class="destinations__card" id="dest-custom" href={`${base}custom-routes/`}>
+        <div class="destinations__card-img" style={`background-image: url('${base}img/custom.jpg')`}>
           <div class="destinations__card-code">MULTI</div>
         </div>
         <div class="destinations__card-body">

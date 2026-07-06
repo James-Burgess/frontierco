@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
 <BaseLayout
@@ -13,7 +14,7 @@ import Footer from '../components/Footer.astro';
 
   <header class="pv-header">
     <div class="pv-wrap">
-      <a href="/" class="pv-back"><img src="/img/logo.png" alt="Deep Frontier" width="24" height="24" /><span>← deepfrontier.co</span></a>
+      <a href={base} class="pv-back"><img src={`${base}img/logo.png`} alt="Deep Frontier" width="24" height="24" /><span>← deepfrontier.co</span></a>
       <h1 class="pv-title">Privacy Policy — Deep Frontier Dive</h1>
       <p class="pv-updated">Effective 3 July 2026 · Applies to the Deep Frontier Dive app for iPhone and iPad</p>
     </div>
@@ -42,7 +43,7 @@ import Footer from '../components/Footer.astro';
       <p>If a future version of the app ever changes any of the above, this policy will be updated here before that version is released, and the app's App Store privacy label will be updated to match.</p>
 
       <h2>Contact</h2>
-      <p>Questions about this policy? Reach us through the contact form at <a href="/#contact">deepfrontier.co</a>.</p>
+      <p>Questions about this policy? Reach us through the contact form at <a href={`${base}#contact`}>deepfrontier.co</a>.</p>
     </div>
   </main>
 

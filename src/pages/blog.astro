@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
 <script>
@@ -41,7 +42,7 @@ import Footer from '../components/Footer.astro';
     <div class="section__label">Go deeper</div>
     <h2 class="blog__cta-title">Ready for your<br><strong>next descent?</strong></h2>
     <p class="blog__cta-text">Join a scheduled trip, build a custom itinerary, or bring us in as expedition support.</p>
-    <a href="/#contact" class="btn btn--primary">Get in Touch</a>
+    <a href={`${base}#contact`} class="btn btn--primary">Get in Touch</a>
   </div>
 
   <Footer />

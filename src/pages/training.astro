@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import Glyph from '../components/Glyph.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
 <BaseLayout
@@ -24,7 +25,7 @@ import Glyph from '../components/Glyph.astro';
       </p>
       <div class="train-header__actions">
         <a href="#courses" class="btn btn--primary">Our Courses</a>
-        <a href="/#contact" class="btn btn--ghost">Enquire</a>
+        <a href={`${base}#contact`} class="btn btn--ghost">Enquire</a>
       </div>
     </div>
   </header>
@@ -117,7 +118,7 @@ import Glyph from '../components/Glyph.astro';
 
     <div class="train-pathway__note">
       <p>Beyond 60 metres, we strongly recommend diving a <strong>closed-circuit rebreather (CCR)</strong> over open circuit — for the gas efficiency, decompression and safety advantages it brings on deeper, longer dives.</p>
-      <a href="/#contact" class="btn btn--primary">More information</a>
+      <a href={`${base}#contact`} class="btn btn--primary">More information</a>
     </div>
   </section>
 
@@ -353,7 +354,7 @@ import Glyph from '../components/Glyph.astro';
       <div class="train-pricing__body">
         <p>Every course we run — recreational or technical, Open Water through to trimix — is charged at a flat <strong>EUR 300 per instruction day</strong>, whatever the level.</p>
         <p class="train-pricing__note">Plus consumables: gas fills, certification and learning materials, and boat, park or permit fees where the dive calls for them.</p>
-        <a href="/#contact" class="btn btn--primary">Enquire About a Course</a>
+        <a href={`${base}#contact`} class="btn btn--primary">Enquire About a Course</a>
       </div>
     </div>
   </section>
