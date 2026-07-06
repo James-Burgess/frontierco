@@ -8,34 +8,26 @@
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 120px clamp(20px, 5vw, 64px) clamp(56px, 6vw, 88px);
+  padding: 100px clamp(20px, 5vw, 64px) clamp(32px, 4vw, 48px);
   background-color: var(--ink);
+  /* photo layer is inlined by index.astro via astro:assets (getImage);
+     these gradients are the no-photo fallback and keep text readable */
   background-image:
-    radial-gradient(120% 90% at 80% 10%, rgba(44,138,110,0.16), transparent 55%),
-    linear-gradient(180deg, var(--ink-soft) 0%, var(--ink) 70%);
+    linear-gradient(180deg, rgba(13,24,23,0.55) 0%, rgba(13,24,23,0.3) 48%, var(--ink) 97%),
+    radial-gradient(120% 90% at 80% 10%, rgba(44,138,110,0.16), transparent 55%);
+  background-size: cover;
+  background-position: center;
   color: var(--paper);
   overflow: hidden;
 }
-
-/* the glyph as an engraved mark, not a faint wash */
-.hero__glyph {
-  position: absolute;
-  right: -4vw;
-  top: 12%;
-  width: min(540px, 46vw);
-  color: var(--paper);
-  opacity: 0.045;
-  pointer-events: none;
-}
-.hero__glyph svg { width: 100%; height: auto; display: block; }
 
 .hero__content {
   position: relative;
   z-index: 1;
   width: 100%;
   max-width: var(--maxw);
-  margin: 0 auto;
+  /* auto block margins centre the text in the space above the stats row */
+  margin: auto;
 }
 
 .hero__tag {
@@ -81,13 +73,18 @@
 
 .hero__actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
 
+/* stats row pinned to the bottom of the hero, above the fold */
 .hero__stats {
   display: flex;
-  gap: clamp(28px, 5vw, 64px);
-  margin-top: clamp(56px, 7vw, 84px);
-  padding-top: 32px;
-  border-top: 1px solid var(--rule-ink);
+  justify-content: center;
+  gap: clamp(40px, 9vw, 130px);
   flex-wrap: wrap;
+  width: 100%;
+  max-width: var(--maxw);
+  margin: clamp(36px, 5vw, 56px) auto 0;
+  padding-top: clamp(24px, 3vw, 36px);
+  border-top: 1px solid var(--rule-ink);
+  text-align: center;
 }
 
 .hero__stat-num {
@@ -114,8 +111,11 @@
 .hero .btn--ghost { border-color: var(--rule-ink); color: var(--paper); }
 .hero .btn--ghost:hover { border-color: var(--paper); background: var(--paper); color: var(--ink); }
 
-/* ─── SERVICES ─────────────────────────────────────────── */
-.services { background: var(--paper); }
+/* ─── SERVICES (dark) ──────────────────────────────────── */
+.services { background: var(--ink); color: var(--paper); }
+.services .section__label { color: var(--accent-2); }
+.services .section__label::before { background: var(--accent-2); }
+.services .section__title { color: var(--paper); }
 
 .services__grid {
   display: grid;
@@ -127,7 +127,7 @@
 .services__card {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--ink);
+  border-top: 1px solid var(--rule-ink);
   padding-top: 22px;
 }
 
@@ -146,7 +146,7 @@
   font-family: var(--mono);
   font-size: 0.64rem;
   letter-spacing: 0.16em;
-  color: var(--accent);
+  color: var(--accent-2);
   font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 14px;
@@ -161,13 +161,13 @@
   font-size: 1.4rem;
   font-weight: 500;
   margin-bottom: 12px;
-  color: var(--ink);
+  color: var(--paper);
   letter-spacing: -0.01em;
 }
 
 .services__card-desc {
   font-size: 0.92rem;
-  color: var(--muted);
+  color: var(--muted-ink);
   line-height: 1.7;
 }
 
@@ -181,7 +181,7 @@
 
 .services__card-list li {
   font-size: 0.84rem;
-  color: var(--ink);
+  color: rgba(244,241,234,0.85);
   padding-left: 18px;
   position: relative;
 }
@@ -192,7 +192,7 @@
   top: .65em;
   width: 9px;
   height: 1px;
-  background: var(--accent);
+  background: var(--accent-2);
 }
 
 .services__card-link {
@@ -205,14 +205,14 @@
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--paper);
   text-decoration: none;
   padding-bottom: 3px;
-  border-bottom: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-ink);
   align-self: flex-start;
   transition: color .2s ease, border-color .2s ease;
 }
-.services__card-link:hover { color: var(--accent); border-color: var(--accent); }
+.services__card-link:hover { color: var(--accent-2); border-color: var(--accent-2); }
 .services__card-link span { transition: transform .2s ease; }
 .services__card-link:hover span { transform: translateX(3px); }
 
@@ -223,11 +223,11 @@
   display: grid;
   grid-template-columns: 1.05fr 1fr;
   gap: clamp(40px, 6vw, 88px);
-  margin-top: clamp(48px, 5vw, 68px);
   align-items: start;
 }
 
 .about__grid .lead + .lead { margin-top: 20px; }
+.about__grid .section__title { margin-bottom: clamp(28px, 3vw, 40px); }
 
 .about__values { display: flex; flex-direction: column; }
 
@@ -239,6 +239,9 @@
   border-top: 1px solid var(--rule-strong);
 }
 .about__value:last-child { border-bottom: 1px solid var(--rule-strong); }
+
+/* first row sits flush so the column top-aligns with the lead text */
+.about__value:first-child { border-top: none; padding-top: 0; }
 
 .about__value-icon {
   width: 34px;
@@ -264,14 +267,16 @@
   line-height: 1.65;
 }
 
-/* brand note */
+/* brand note — its own surface so it reads apart from the about section */
 .brand-note {
   display: flex;
   gap: 32px;
   align-items: center;
   margin-top: clamp(48px, 5vw, 72px);
-  padding-top: 40px;
-  border-top: 1px solid var(--rule-strong);
+  padding: clamp(28px, 4vw, 44px);
+  background: var(--bone);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-lg);
 }
 
 .brand-note__mark {
@@ -391,7 +396,13 @@ a.destinations__card:hover .destinations__card-more span { transform: translateX
 
 /* ─── CONTACT ──────────────────────────────────────────── */
 .contact {
-  background: var(--ink);
+  background-color: var(--ink);
+  /* optional reef photo at /img/contact.jpg — solid ink until supplied */
+  background-image:
+    linear-gradient(180deg, var(--ink) 35%, rgba(13,24,23,0.88) 100%),
+    url('/img/contact.jpg');
+  background-size: cover;
+  background-position: center bottom;
   color: var(--paper);
 }
 .contact .section__label { color: var(--accent-2); }

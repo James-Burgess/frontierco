@@ -1,8 +1,17 @@
 ---
+import { getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import Glyph from '../components/Glyph.astro';
+import heroSrc from '../assets/img/hero.png';
+
+const heroBg = await getImage({ src: heroSrc, format: 'webp', width: 1920 });
+const heroBgImage = [
+  'linear-gradient(180deg, rgba(13,24,23,0.55) 0%, rgba(13,24,23,0.3) 48%, var(--ink) 97%)',
+  'radial-gradient(120% 90% at 80% 10%, rgba(44,138,110,0.16), transparent 55%)',
+  `url('${heroBg.src}')`,
+].join(', ');
 ---
 
 <script>
@@ -16,8 +25,7 @@ import Glyph from '../components/Glyph.astro';
 >
   <Nav activePage="index" />
 
-  <section id="hero" class="hero">
-    <div class="hero__glyph"><Glyph /></div>
+  <section id="hero" class="hero" style={`background-image: ${heroBgImage};`}>
     <div class="hero__content">
       <div class="hero__tag">Technical Diving · East Africa</div>
       <h1 class="hero__title">Extending the <strong>limit.</strong><br>Into the deep.</h1>
@@ -29,19 +37,19 @@ import Glyph from '../components/Glyph.astro';
         <a href="#destinations" class="btn btn--primary">Explore Destinations</a>
         <a href="/expeditions/" class="btn btn--ghost">Expedition Support</a>
       </div>
-      <div class="hero__stats">
-        <div>
-          <div class="hero__stat-num">12+</div>
-          <div class="hero__stat-label">African countries</div>
-        </div>
-        <div>
-          <div class="hero__stat-num">110m+</div>
-          <div class="hero__stat-label">Max operating depth</div>
-        </div>
-        <div>
-          <div class="hero__stat-num">SSI XR / IANTD</div>
-          <div class="hero__stat-label">Certified instructors</div>
-        </div>
+    </div>
+    <div class="hero__stats">
+      <div>
+        <div class="hero__stat-num">12+</div>
+        <div class="hero__stat-label">African countries</div>
+      </div>
+      <div>
+        <div class="hero__stat-num">110m+</div>
+        <div class="hero__stat-label">Max operating depth</div>
+      </div>
+      <div>
+        <div class="hero__stat-num">SSI XR / IANTD</div>
+        <div class="hero__stat-label">Certified instructors</div>
       </div>
     </div>
   </section>
@@ -113,10 +121,10 @@ import Glyph from '../components/Glyph.astro';
   </section>
 
   <section id="about" class="section about">
-    <div class="section__label">Who we are</div>
-    <h2 class="section__title">Built by divers,<br><strong>for the frontier.</strong></h2>
     <div class="about__grid">
       <div>
+        <div class="section__label">Who we are</div>
+        <h2 class="section__title">Built by divers,<br><strong>for the frontier.</strong></h2>
         <p class="lead">
           Deep Frontier Diving was founded by a team of technical divers with extensive
           experience across East African waters. Our focus is on delivering safe,
